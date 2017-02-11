@@ -6,38 +6,35 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 18:18:56 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/11 07:42:18 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/11 15:38:21 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/filler.h"
 
-int	main(void)
+int		main(int argc, char **argv)
 {
-	int		fd;
-	int 	i;
-	char	*line1;
-	char	*line2;
-	char	*map;
+	t_ply ref;
 
-
-	fd = 0;
-	i = 0;
-	get_next_line(fd, &line1); // recuperation du nom de joueur et de la place
-	printf("%s\n", line1);
-	get_next_line(fd, &line2);  // recuperation de la taille de la map
-	printf("%s\n", line2);
-	while (1)
+	ft_memset(&ref, 0, sizeof(t_ply));
+	ref.fd = open(argv[1], O_RDONLY);
+	if (argc == 2)
 	{
-		get_next_line(fd, &line)
-		// recuperation de la map
-		// recupperation de la piece
-		// algo min max
-		if (ft_check_strategy(map) == 0 && flag == 0)
-			ft_basic_algo(map, piece);
-		else if (ft_check_strategy(map) && flag == 0)
-			ft_min_max(map, piece);
-		i++;
+		ref.play = ft_record_playnbr(fd);
+		ref.tab = ft_record_size_map(fd);
+		ref.x = ref.tab[0];
+		ref.y = ref.tab[1];
+		free(ref.tab);
+		while (100)
+		{
+			ref.map = ft_record_map(ref.x, fd);
+			ref.tab = ft_record_size_piece(fd);
+			ref.xp = ref.tab[0];
+			free(ref.tab);
+			ref.piece = ft_record_piece(ref.xp, fd);
+			ft_check_place(ref.map, ref.piece, ref.play);
+			break ;
+		}
 	}
 	return (0);
 }

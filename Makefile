@@ -6,7 +6,7 @@
 #    By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/24 11:53:06 by hel-hadi          #+#    #+#              #
-#    Updated: 2017/02/10 18:32:54 by hel-hadi         ###   ########.fr        #
+#    Updated: 2017/02/11 12:51:37 by hel-hadi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ PREF = ./srcs/
 HEADER = ./includes/
 SRCS = 	filler.c	\
 		main.c		\
+		tools.c		\
 
 OBJ = $(SRCS:.c=.o)
 OBJ1 = objets/*.o
