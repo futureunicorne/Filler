@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 17:18:44 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/11 15:38:15 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/11 16:38:40 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,21 @@ typedef struct	s_art
 	int 	min;
 	int		i;
 	int		j;
+	int		pos;
+	int		pos_ad;
+	char	play2;
 }				t_art;
 
 int		recovery_place(int fd, char *str);
-char	ft_record_playnbr(void);
-int		*ft_record_size_map(void);
-int		*ft_record_size_piece(void);
-char	*ft_record_map(int lgt);
-char	*ft_record_piece(int lgt);
+char	ft_record_playnbr(int fd);
+int		*ft_record_size_map(int fd);
+int		*ft_record_size_piece(int fd);
+char	*ft_record_map(int lgt, int fd);
+char	*ft_record_piece(int lgt, int fd);
+int		ft_start_place(char *map, char play);
+int		*ft_check_battle(char *map, char *piece, char play);
+
+
 
 
 

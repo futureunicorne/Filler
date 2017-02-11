@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 18:18:56 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/11 15:38:21 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/11 17:26:45 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,25 @@ int		main(int argc, char **argv)
 	ref.fd = open(argv[1], O_RDONLY);
 	if (argc == 2)
 	{
-		ref.play = ft_record_playnbr(fd);
-		ref.tab = ft_record_size_map(fd);
+		ref.play = ft_record_playnbr(ref.fd);
+		printf("char = %c\n", ref.play);
+		ref.tab = ft_record_size_map(ref.fd);
 		ref.x = ref.tab[0];
 		ref.y = ref.tab[1];
+		printf("x = %d\n", ref.x);
+		printf("y = %d\n", ref.y);
 		free(ref.tab);
 		while (100)
 		{
-			ref.map = ft_record_map(ref.x, fd);
-			ref.tab = ft_record_size_piece(fd);
+			ref.map = ft_record_map(ref.x, ref.fd);
+			printf("map \n%s\n", ref.map);
+			ref.tab = ft_record_size_piece(ref.fd);
 			ref.xp = ref.tab[0];
+			printf("xp  = %d\n", ref.xp);
 			free(ref.tab);
-			ref.piece = ft_record_piece(ref.xp, fd);
-			ft_check_place(ref.map, ref.piece, ref.play);
+			ref.piece = ft_record_piece(ref.xp, ref.fd);
+			printf("piece = \n%s\n", ref.piece);
+			ft_check_battle(ref.map, ref.piece, ref.play);
 			break ;
 		}
 	}
