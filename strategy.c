@@ -6,28 +6,31 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/11 16:40:50 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/13 06:59:22 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/13 16:40:05 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-int		ft_map_length(char *map, int x_map)
 {
-	int i;
-	int	res;
+	int		pos;
+	int		index;
+	char	tmp[ft_strlen(str)];
 
-	i = 0;
-	while (map[i] != '\0')
-		i++;
-	res =  i - x_map;
-	return (res);
-}
-
-int		*ft_middle_strategy(char *map, piece, char play, x_ma )
-{
-	t_art art;
-
-	ft_memset(&art, 0, sizeof(t_art));
-	return (0);
-}
+	pos = 0;
+	index = 0;
+	if (!str || !*str)
+		return (str);
+	while (str[index] != '\0')
+	{
+		tmp[index] = str[index];
+		++index;
+	}
+	pos = index - 1;
+	index = 0;
+	while (index != pos + 1)
+	{
+		str[index] = tmp[pos - index];
+		++index;
+	}
+	return (str);

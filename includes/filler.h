@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 17:18:44 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/13 07:28:53 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/13 11:39:37 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,13 @@ typedef struct	s_art
 	int 	min;
 	int		i;
 	int		j;
+	int		x;
+	int		y;
 	int		pos;
+	int		cpt;
 	int		pos_ad;
 	char	play2;
+	char	*res;
 }				t_art;
 
 int		recovery_place(int fd, char *str);
