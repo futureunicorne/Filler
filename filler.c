@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 18:26:09 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/11 17:01:06 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/11 19:30:52 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,28 @@ int		ft_enemy_start_place(char *map, char play2)
 	return (art.i);
 }
 
-int		*ft_check_battle(char *map, char *piece, char play)
+char	ft_enemy_letter(int play)
+{
+	int play2;
+
+	if (play == 'O')
+		play2 = 'X';
+	else
+		play2 = 'O';
+	return (play2);
+}
+
+int		*ft_check_battle(char *map, char *piece, char play, int x_map)
 {
 	t_art art;
 
 	ft_memset(&art, 0, sizeof(t_art));
-	piece = NULL;
+	if (piece == NULL)
+		return (0);
 	art.pos = ft_start_place(map, play);
-	if (play == 'O')
-		art.play2 = 'X';
-	else
-		art.play2 = 'O';
+	art.play2 = ft_enemy_letter(play);
 	art.pos_ad = ft_enemy_start_place(map, art.play2);
+	ft_middle_strategy(map, piece, play, )
 
 	return (0);
 }
