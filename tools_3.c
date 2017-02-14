@@ -6,11 +6,11 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/13 15:12:01 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/13 15:14:51 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/14 18:23:07 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#include "includes/filler.h"
 
 int	ft_convert_x(char *map, int conv)
 {
@@ -58,22 +58,14 @@ int	ft_count_stars(char *piece)
 	return (cpt);
 }
 
-int	ft_check_nbrline(char *piece)
+int				check_count(char *str)
 {
 	int i;
 
 	i = 0;
-	while (piece[i] != '\n')
+	while (str[i] != '\n')
+	{
 		i++;
+	}
 	return (i);
-}
-
-int	ft_check_diff(char *piece, int i)
-{
-	int j;
-
-	j = i;
-	while (piece[j])
-		j++;
-	return (j);
 }

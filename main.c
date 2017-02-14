@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 18:18:56 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/11 19:31:11 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/14 18:23:11 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ int		main(int argc, char **argv)
 			free(ref.tab);
 			ref.piece = ft_record_piece(ref.xp, ref.fd);
 			printf("piece = \n%s\n", ref.piece);
-			ft_check_battle(ref.map, ref.piece, ref.play, ref.x);
-			break ;
+			if (ft_check_battle(ref.map, ref.piece, ref.play, ref.x) == 0)
+				break ;
 		}
 	}
 	return (0);

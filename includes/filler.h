@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 17:18:44 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/13 11:39:37 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/14 18:23:15 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,32 @@ typedef struct	s_art
 	int		j;
 	int		x;
 	int		y;
+	int		x_map;
+	int		y_map;
 	int		pos;
 	int		cpt;
 	int		pos_ad;
 	char	play2;
 	char	*res;
 }				t_art;
+
+typedef	struct		s_pos
+{
+	int				x;
+	int				y;
+	int				star;
+	int				place;
+}					t_pos;
+
+typedef	struct		s_var
+{
+	int				i;
+	int				j;
+	int				diff;
+	int				dieses;
+	t_list			*elem;
+	t_list			*mat;
+}					t_var;
 
 int		recovery_place(int fd, char *str);
 char	ft_record_playnbr(int fd);
