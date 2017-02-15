@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 18:26:09 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/15 09:32:32 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/15 14:14:09 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ char	ft_enemy_letter(int play)
 	return (play2);
 }
 
+
+
 int		ft_check_battle(char *map, char *piece, char play, int x_map, int y_map)
 {
 	t_art art;
@@ -58,16 +60,21 @@ int		ft_check_battle(char *map, char *piece, char play, int x_map, int y_map)
 		y_map =  art.y_map;
 	}
 	art.i = ft_place_piece(map, piece, play, &art);
+	art.diff = record_left_corner(piece);
+	//printf("val = %d\n", art.i);
 	if (art.i >= 0)
 	{
-		art.x = ft_convert_x(map, art.i);
-		art.y = ft_convert_y(map, art.i);
+		art.x = ft_convert_x(map, art.i - art.diff);
+		art.y = ft_convert_y(map, art.i - art.diff);
 		ft_putnbr(art.x);
 		ft_putchar(' ');
 		ft_putnbr(art.y);
 		ft_putchar('\n');
 	}
 	else
+	{
+	//	printf("tableau plein\n");
 		return (0);
+	}
 	return (1);
 }

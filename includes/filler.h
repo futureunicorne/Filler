@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 17:18:44 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/15 09:34:19 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/15 14:12:41 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct	s_art
 	int		pos;
 	int		cpt;
 	int		pos_ad;
+	int		diff;
 	char	play2;
 	char	*res;
 }				t_art;
@@ -103,6 +104,14 @@ int					ft_convert_x(char *map, int conv);
 int					ft_convert_y(char *map, int conv);
 int					ft_count_stars(char *piece);
 int					check_count(char *str);
+int					record_left_corner(char *piece);
+
+
+char	*ft_place_i(char *str, char *piece, int *tab, int i);
+void	call_place(char *str, int *tab, t_car *car, t_pos *pos);
+
+
+
 
 
 

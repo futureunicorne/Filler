@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_piece.c                                      :+:      :+:    :+:   */
+/*   debug.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/12 23:32:20 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/15 14:01:16 by hel-hadi         ###   ########.fr       */
+/*   Created: 2017/02/15 11:18:23 by hel-hadi          #+#    #+#             */
+/*   Updated: 2017/02/15 11:31:45 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-void	call_place_i(char *str, int *tab, t_car *car, t_pos *pos)
+void	call_place(char *str, int *tab, t_car *car, t_pos *pos)
 {
 	if (str[car->j] == '\n')
 	{
@@ -23,16 +23,18 @@ void	call_place_i(char *str, int *tab, t_car *car, t_pos *pos)
 	if (pos->x == tab[car->k] && pos->y == tab[car->k + 1])
 	{
 		if (str[car->j] == '.')
+		{
+			str[car->j] = 'O';
 			car->auth++;
+		}
 		car->k = car->k + 2;
 	}
 }
 
-int		ft_check_place_i(char *str, char *piece, int *tab, int i)
+char	*ft_place_i(char *str, char *piece, int *tab, int i)
 {
 	t_pos pos;
 	t_car car;
-
 	ft_memset(&pos, 0, sizeof(t_pos));
 	ft_memset(&car, 0, sizeof(t_car));
 	pos.star = ft_count_stars(str);
@@ -45,57 +47,12 @@ int		ft_check_place_i(char *str, char *piece, int *tab, int i)
 		car.k = 0;
 		while (str[car.j] ^ (car.k == pos.star * 2))
 		{
-			call_place_i(str, tab, &car, &pos);
+			call_place(str, tab, &car, &pos);
 			if (car.auth == pos.star - 1)
-			{
-				return (1);
-			}
+				return (str);
 			car.j++;
 			pos.y++;
 		}
 	}
-	return (-1);
-}
-
-void	ft_relative_pos2(char *str, t_var *var, t_pos *pos)
-{
-	if (str[var->i] == '\n' && var->dieses == 1)
-		pos->x--;
-	if (str[var->i] == '\n' && var->dieses == 0)
-		pos->y = -1;
-	if (str[var->i] == '\n' && var->dieses == 1)
-		pos->y = -1 - var->diff;
-	if (str[var->i] == '*' && var->dieses == 0)
-	{
-		var->dieses = 1;
-		var->diff = pos->y;
-		pos->x = 0;
-		pos->y = 0;
-	}
-}
-
-int		*ft_relative_pos(char *str)
-{
-	int		*tab;
-	t_pos	pos;
-	t_var	var;
-
-	pos.star = ft_count_stars(str) * 2;
-	tab = (int*)malloc(sizeof(tab) * pos.star);
-	ft_memset(&pos, 0, sizeof(t_pos));
-	ft_memset(&var, 0, sizeof(t_var));
-	pos.star = ft_count_stars(str) * 2;
-	while (str[var.i])
-	{
-		ft_relative_pos2(str, &var, &pos);
-		if (str[var.i] == '*')
-		{
-			tab[var.j] = pos.x;
-			tab[var.j + 1] = pos.y;
-			var.j = var.j + 2;
-		}
-		pos.y++;
-		var.i++;
-	}
-	return (tab);
+	return (str);
 }

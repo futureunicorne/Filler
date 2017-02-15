@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/13 15:12:01 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/15 09:33:24 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/15 11:21:28 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	ft_convert_x(char *map, int conv)
 	{
 		if (map[art.i] == '\n')
 			art.x++;
+		art.i++;
 	}
 	return (art.x);
 }
@@ -30,12 +31,12 @@ int	ft_convert_y(char *map, int conv)
 	t_art art;
 
 	ft_memset(&art, 0, sizeof(t_art));
-	while (map[art.i] <= conv)
+	while (art.i<= conv)
 		art.i++;
-	while (map[art.i] >= 0)
+	while (art.i >= 0)
 	{
-		if (map[art.i] == '\n' || map[art.i] == 0)
-			return (art.y);
+		if (map[art.i] == '\n' || art.i == 0)
+			return (art.y - 1);
 		art.i--;
 		art.y++;
 	}
