@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 18:26:09 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/15 14:14:09 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/15 17:28:18 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int		ft_start_place(char *map, char play)
 	ft_memset(&art, 0, sizeof(t_art));
 	while (map[art.i] != play)
 		art.i++;
-	printf("depart = %d\n", art.i);
 	return (art.i);
 }
 
@@ -30,7 +29,6 @@ int		ft_enemy_start_place(char *map, char play2)
 	ft_memset(&art, 0, sizeof(t_art));
 	while (map[art.i] != play2)
 		art.i++;
-	printf("depart enemy= %d\n", art.i);
 	return (art.i);
 }
 
@@ -52,6 +50,7 @@ int		ft_check_battle(char *map, char *piece, char play, int x_map, int y_map)
 	t_art art;
 
 	ft_memset(&art, 0, sizeof(t_art));
+
 	if (piece == NULL)
 		return (0);
 	if (x_map || y_map)
@@ -61,20 +60,16 @@ int		ft_check_battle(char *map, char *piece, char play, int x_map, int y_map)
 	}
 	art.i = ft_place_piece(map, piece, play, &art);
 	art.diff = record_left_corner(piece);
-	//printf("val = %d\n", art.i);
 	if (art.i >= 0)
 	{
 		art.x = ft_convert_x(map, art.i - art.diff);
-		art.y = ft_convert_y(map, art.i - art.diff);
+		art.y = ft_convert_y(map, art.i - art.diff) - 1;
 		ft_putnbr(art.x);
 		ft_putchar(' ');
 		ft_putnbr(art.y);
 		ft_putchar('\n');
 	}
 	else
-	{
-	//	printf("tableau plein\n");
 		return (0);
-	}
 	return (1);
 }

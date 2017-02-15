@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/12 23:32:20 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/15 14:01:16 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/15 14:20:06 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	call_place_i(char *str, int *tab, t_car *car, t_pos *pos)
 	}
 }
 
-int		ft_check_place_i(char *str, char *piece, int *tab, int i)
+int		ft_check_place_i(char *str, char *piece, int *tab, int i, char play)
 {
 	t_pos pos;
 	t_car car;
@@ -36,7 +36,7 @@ int		ft_check_place_i(char *str, char *piece, int *tab, int i)
 	ft_memset(&pos, 0, sizeof(t_pos));
 	ft_memset(&car, 0, sizeof(t_car));
 	pos.star = ft_count_stars(str);
-	if (str[i] == 'O')
+	if (str[i] == play)
 	{
 		car.auth = 0;
 		ft_memset(&pos, 0, sizeof(t_pos));

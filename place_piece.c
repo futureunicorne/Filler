@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/14 18:18:58 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/15 14:16:04 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/15 16:02:09 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,9 @@ int	ft_place_piece(char *map, char *piece, char play, t_art *art)
 	tab = ft_relative_pos(piece);
 	while (ft_optimal_check(map, play, flag, art) != -1)
 	{
-		if (ft_check_place_i(map, piece, tab, ft_optimal_check(map, play, flag, art)) != -1)
+		if (ft_check_place_i(map, piece, tab, ft_optimal_check(map, play, flag, art), play) != -1)
 		{
 			i = ft_optimal_check(map, play, flag, art);
-			//tmp = ft_place_i(map, piece, tab, i);
-			//printf("map_tmp \n%s\n", tmp);
 			return (i);
 		}
 		flag++;

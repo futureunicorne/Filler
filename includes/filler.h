@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 17:18:44 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/15 14:12:41 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/15 17:10:26 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct	s_ply  // separer structure trop longue
 	char	play;
 	char 	*line1;
 	int		*tab;
+	int		*tab2;
 	char	*map;
 	char	*piece;
 }				t_ply;
@@ -96,7 +97,7 @@ int					ft_enemy_start_place(char *map, char play2);
 int					ft_start_place(char *map, char play);
 int					*ft_relative_pos(char *str);
 void				ft_relative_pos2(char *str, t_var *var, t_pos *pos);
-int					ft_check_place_i(char *str, char *piece, int *tab, int i);
+int					ft_check_place_i(char *str, char *piece, int *tab, int i, char play);
 void				call_place_i(char *str, int *tab, t_car *car, t_pos *pos);
 int					ft_place_piece(char *map, char *piece, char play, t_art *art);
 int					ft_optimal_check(char *map, char play, int flag, t_art *art);
