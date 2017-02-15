@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 18:26:09 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/14 18:23:16 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/15 09:32:32 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,26 +45,29 @@ char	ft_enemy_letter(int play)
 	return (play2);
 }
 
-int		*ft_check_battle(char *map, char *piece, char play, int x_map, int y_map)
+int		ft_check_battle(char *map, char *piece, char play, int x_map, int y_map)
 {
 	t_art art;
 
 	ft_memset(&art, 0, sizeof(t_art));
 	if (piece == NULL)
 		return (0);
-	art.pos = ft_start_place(map, play);
-	art.play2 = ft_enemy_letter(play);
-	art.pos_ad = ft_enemy_start_place(map, art.play2);
-	x_map =  art.x_map;
-	y_map =  art.y_map;
-	ft_place_piece(map, piece, play, &art);
-	art.x = ft_covert_value(art.i);
-	art.y = ft_covert_value(art.i);
-	ft_putnbr(art.x);
-	ft_putchar(' ');
-	ft_putnbr(art.y);
-	ft_putchar('\n');
-	if (art.x)
-		return (1);
-	return (0);
+	if (x_map || y_map)
+	{
+		x_map =  art.x_map;
+		y_map =  art.y_map;
+	}
+	art.i = ft_place_piece(map, piece, play, &art);
+	if (art.i >= 0)
+	{
+		art.x = ft_convert_x(map, art.i);
+		art.y = ft_convert_y(map, art.i);
+		ft_putnbr(art.x);
+		ft_putchar(' ');
+		ft_putnbr(art.y);
+		ft_putchar('\n');
+	}
+	else
+		return (0);
+	return (1);
 }

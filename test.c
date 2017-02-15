@@ -1,23 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "test.h"
-void	*ft_memset(void *s, int c, size_t n)
-{
-	char	*s1;
-	size_t	i;
 
-	i = 0;
-	if (c >= 0 || c <= 127)
-	{
-		s1 = (char*)s;
-		while (i < n)
-		{
-			s1[i] = c;
-			i++;
-		}
-	}
-	return (s);
-}
 
 int	ft_count_stars(char *piece)
 {

@@ -6,17 +6,19 @@
 #    By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/24 11:53:06 by hel-hadi          #+#    #+#              #
-#    Updated: 2017/02/11 19:32:56 by hel-hadi         ###   ########.fr        #
+#    Updated: 2017/02/15 09:23:36 by hel-hadi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ayam.filler
 PREF = ./srcs/
 HEADER = ./includes/
-SRCS = 	filler.c	\
-		main.c		\
-		tools.c		\
-		strategy.c	\
+SRCS = 	filler.c		\
+		main.c			\
+		tools.c			\
+		tools_3.c		\
+		check_piece.c	\
+		place_piece.c	\
 
 OBJ = $(SRCS:.c=.o)
 OBJ1 = objets/*.o

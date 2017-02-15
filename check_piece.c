@@ -6,13 +6,13 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/12 23:32:20 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/14 18:23:12 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/15 09:20:51 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-static void	call_place_i(char *str, int *tab, t_car *car, t_pos *pos)
+void	call_place_i(char *str, int *tab, t_car *car, t_pos *pos)
 {
 	if (str[car->j] == '\n')
 	{
@@ -28,7 +28,7 @@ static void	call_place_i(char *str, int *tab, t_car *car, t_pos *pos)
 	}
 }
 
-int			ft_check_place_i(char *str, char *piece, int *tab, int i)
+int		ft_check_place_i(char *str, char *piece, int *tab, int i)
 {
 	t_pos pos;
 	t_car car;
@@ -52,10 +52,10 @@ int			ft_check_place_i(char *str, char *piece, int *tab, int i)
 			pos.y++;
 		}
 	}
-	return (0);
+	return (-1);
 }
 
-void		ft_relative_pos2(char *str, t_var *var, t_pos *pos)
+void	ft_relative_pos2(char *str, t_var *var, t_pos *pos)
 {
 	if (str[var->i] == '\n' && var->dieses == 1)
 		pos->x--;
@@ -72,7 +72,7 @@ void		ft_relative_pos2(char *str, t_var *var, t_pos *pos)
 	}
 }
 
-int			*ft_relative_pos(char *str)
+int		*ft_relative_pos(char *str)
 {
 	int		*tab;
 	t_pos	pos;
