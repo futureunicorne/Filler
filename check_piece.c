@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/12 23:32:20 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/15 14:20:06 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/16 11:43:48 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,11 @@ void	call_place_i(char *str, int *tab, t_car *car, t_pos *pos)
 	}
 	if (pos->x == tab[car->k] && pos->y == tab[car->k + 1])
 	{
+
 		if (str[car->j] == '.')
 			car->auth++;
+		if (str[car->j] == 'o')
+			pos->cpt++;
 		car->k = car->k + 2;
 	}
 }
@@ -36,7 +39,7 @@ int		ft_check_place_i(char *str, char *piece, int *tab, int i, char play)
 	ft_memset(&pos, 0, sizeof(t_pos));
 	ft_memset(&car, 0, sizeof(t_car));
 	pos.star = ft_count_stars(str);
-	if (str[i] == play)
+	if (str[i] == play || str[i] == '.')
 	{
 		car.auth = 0;
 		ft_memset(&pos, 0, sizeof(t_pos));
@@ -46,14 +49,15 @@ int		ft_check_place_i(char *str, char *piece, int *tab, int i, char play)
 		while (str[car.j] ^ (car.k == pos.star * 2))
 		{
 			call_place_i(str, tab, &car, &pos);
-			if (car.auth == pos.star - 1)
-			{
+			if (car.auth == pos.star - 1 && pos.cpt == 1)
 				return (1);
-			}
 			car.j++;
 			pos.y++;
 		}
 	}
+	//printf("auth = %d\n",car.auth);
+	//printf("cpt  = %d\n",pos.cpt);
+	//printf("cpt  = %d\n",pos.star);
 	return (-1);
 }
 
