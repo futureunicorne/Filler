@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tools_3.c                                          :+:      :+:    :+:   */
+/*   tools_2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/13 15:12:01 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/16 23:37:37 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/17 19:11:27 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,12 @@ int	ft_convert_y(char *map, int conv)
 	ft_memset(&art, 0, sizeof(t_art));
 	while (art.i<= conv)
 		art.i++;
-	while (art.i >= 0)
+	while (map[art.i] != '\n')
 	{
-		if (map[art.i] == '\n' || art.i == 0)
-			return (art.y);
 		art.i--;
 		art.y++;
 	}
-	return (0);
+	return (art.y - 1);
 }
 
 int	ft_count_stars(char *piece)

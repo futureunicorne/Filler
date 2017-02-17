@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/12 23:32:20 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/17 18:15:58 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/17 19:34:43 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		ft_count_piece(char *piece)
 	cpt = 0;
 	while (piece[i] != '\0')
 	{
-		if (piece[i] == '.' || piece[i] == '*')
+		if (piece[i] == '.' || piece[i] == '*' || piece[i] == '\n')
 			cpt++;
 		i++;
 	}
@@ -54,9 +54,19 @@ void	call_place_i(char *str, int *tab, t_car *car, t_pos *pos)
 		pos->x--;
 		pos->y = -1 - car->diff;
 	}
-	if (tab[car->k] == -50 && tab[car->k + 1] == -50)
+	printf("\n");
+	printf("char = %c\n", str[car->j]);
+	printf("x    = %d\n", pos->x);
+	printf("tabx = %d\n", tab[car->k]);
+	printf("y    = %d\n", pos->x);
+	printf("taby = %d\n", tab[car->k + 1]);
+	if (tab[car->k] == -1500 && tab[car->k + 1] == -1500)
 	{
-		if ((tab[car->k] == -50 && tab[car->k + 1] == -50))
+
+	}
+	if (tab[car->k] == -1000 && tab[car->k + 1] == -1000)
+	{
+		if ((tab[car->k] == -1000 && tab[car->k + 1] == -1000))
 			pos->y--;
 		car->auth++;
 		car->k = car->k + 2;
@@ -97,6 +107,8 @@ int		ft_check_place_i(char *str, char *piece, int *tab, int i, char play)
 		pos.piece = ft_count_piece(piece);
 		pos.flag = ft_count_line_star(piece);
 		pos.y_map = ft_check_line(str) + 1;
+		printf("NEW ONE\n");
+		printf("i = %d\n", i);
 		if (pos.flag)
 		{
 			i = i + (pos.y_map * pos.flag);
@@ -105,9 +117,14 @@ int		ft_check_place_i(char *str, char *piece, int *tab, int i, char play)
 			pos.flag = 0;
 		}
 		car.j = i;
-		while ((car.k < pos.piece * 2)  ^ (str[car.j] != '\0'))
+		while ((car.k == pos.piece * 2)  ^ (str[car.j] != '\0'))
 		{
 			call_place_i(str, tab, &car, &pos);
+			printf("auth = %d\n", car.auth);
+			printf("piece = %d\n", pos.piece -1);
+			printf("cpt  = %d\n", pos.cpt);
+			printf("j = %d\n", car.j);
+			printf("\n");
 			if ((car.auth == pos.piece - 1) && pos.cpt == 1)
 				return (1);
 			car.j++;
@@ -134,11 +151,10 @@ void	ft_relative_pos2(char *str, t_var *var, t_pos *pos)
 	}
 }
 
-
-
 int		*ft_relative_pos(char *str)
 {
 	int		*tab;
+	int		i;
 	t_pos	pos;
 	t_var	var;
 
@@ -151,12 +167,18 @@ int		*ft_relative_pos(char *str)
 	while (str[var.i])
 	{
 		ft_relative_pos2(str, &var, &pos);
-		if (str[var.i] == '*' || str[var.i] == '.')
+		if (str[var.i] == '*' || str[var.i] == '.' || str[var.i] == '\n')
 		{
 			if (str[var.i] == '.')
 			{
-				tab[var.j] = -50;
-				tab[var.j + 1] = -50;
+				tab[var.j] = -1000;
+				tab[var.j + 1] = -1000;
+				var.j = var.j + 2;
+			}
+			else if (str[var.i] == '\n')
+			{
+				tab[var.j] = -1500;
+				tab[var.j + 1] = -1500;
 				var.j = var.j + 2;
 			}
 			else
@@ -168,6 +190,13 @@ int		*ft_relative_pos(char *str)
 		}
 		pos.y++;
 		var.i++;
+	}
+	i = 0;
+	while (i < ft_count_piece(str) * 2)
+	{
+		printf("x = %d\n", tab[i]);
+		printf("y = %d\n", tab[i + 1]);
+		i = i + 2;
 	}
 	return (tab);
 }
