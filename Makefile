@@ -6,7 +6,7 @@
 #    By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/24 11:53:06 by hel-hadi          #+#    #+#              #
-#    Updated: 2017/02/15 15:47:37 by hel-hadi         ###   ########.fr        #
+#    Updated: 2017/02/17 00:11:38 by hel-hadi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,12 @@ HEADER = ./includes/
 SRCS = 	filler.c		\
 		main.c			\
 		tools.c			\
-		tools_3.c		\
+		tools_2.c		\
 		check_piece.c	\
 		place_piece.c	\
+		debug.c			\
+		stg_tools.c		\
+		stg_tools2.c	\
 
 OBJ = $(SRCS:.c=.o)
 OBJ1 = objets/*.o
@@ -33,7 +36,6 @@ $(NAME):
 		make -C libft fclean && make -C libft
 		$(CC) $(FLAGS) -I$(HEADER) -c $(SRCS)
 		$(CC) $(OBJ) -L./libft/ -lft $(OPT2) $(NAME)
-		@mv $(NAME) players
 		@echo "\033[36m === Creation de l'executable filler ===\033[0m"
 
 

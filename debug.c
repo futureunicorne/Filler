@@ -6,13 +6,13 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 11:18:23 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/15 11:31:45 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/16 19:34:27 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-void	call_place(char *str, int *tab, t_car *car, t_pos *pos)
+void	call_place(char *str, int *tab, t_car *car, t_pos *pos, char *dst)
 {
 	if (str[car->j] == '\n')
 	{
@@ -24,32 +24,44 @@ void	call_place(char *str, int *tab, t_car *car, t_pos *pos)
 	{
 		if (str[car->j] == '.')
 		{
-			str[car->j] = 'O';
+			dst[car->j] = 'O';
 			car->auth++;
 		}
+		else if (str[car->j] == 'O' && pos->cpt < 2)
+			pos->cpt++;
 		car->k = car->k + 2;
 	}
 }
 
-char	*ft_place_i(char *str, char *piece, int *tab, int i)
+char	*ft_place_i(char *str, char *piece, int *tab, int i, char play)
 {
 	t_pos pos;
 	t_car car;
+	char *dst;
+
 	ft_memset(&pos, 0, sizeof(t_pos));
 	ft_memset(&car, 0, sizeof(t_car));
+	dst = ft_strdup(str);
 	pos.star = ft_count_stars(str);
-	if (str[i] == 'O')
+	if (str[i] == play || str[i] == '.')
 	{
 		car.auth = 0;
 		ft_memset(&pos, 0, sizeof(t_pos));
 		pos.star = ft_count_stars(piece);
 		car.j = i;
 		car.k = 0;
-		while (str[car.j] ^ (car.k == pos.star * 2))
+		while ((str[car.j] != '\0') ^ (car.k == pos.star * 2))
 		{
-			call_place(str, tab, &car, &pos);
-			if (car.auth == pos.star - 1)
-				return (str);
+			call_place(str, tab, &car, &pos, dst);
+			//printf("auth1 = %d\n",car.auth);
+			//printf("cpt1  = %d\n",pos.cpt);
+			//printf("star  = %d\n",pos.star -1);
+			//printf("j  = %d\n",car.j);
+			if (car.auth == pos.star - 1 && pos.cpt == 1)
+			{
+				printf("new = \n%s\n", dst);
+				return (dst);
+			}
 			car.j++;
 			pos.y++;
 		}

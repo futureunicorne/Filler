@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 17:18:44 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/15 17:10:26 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/17 00:10:33 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ typedef struct	s_ply  // separer structure trop longue
 	int		*tab2;
 	char	*map;
 	char	*piece;
+	int		start;
+	int		e_co;
 }				t_ply;
 
 typedef struct	s_art
@@ -86,12 +88,23 @@ typedef	struct		s_car
 	int				auth;
 }					t_car;
 
+typedef struct		s_stg
+{
+	int 			i;
+	int				pos;
+	int 			res;
+	int 			med_f;
+	int				med_e;
+	int				e_co;
+	int				*tab;
+}					t_stg;
+
 char				ft_record_playnbr(int fd);
 int					*ft_record_size_map(int fd);
 int					*ft_record_size_piece(int fd);
 char				*ft_record_map(int lgt, int fd);
 char				*ft_record_piece(int lgt, int fd);
-int					ft_check_battle(char *map, char *piece, char play, int x_map, int y_map);
+int					ft_check_battle(t_ply *ref);
 char				ft_enemy_letter(int play);
 int					ft_enemy_start_place(char *map, char play2);
 int					ft_start_place(char *map, char play);
@@ -106,10 +119,18 @@ int					ft_convert_y(char *map, int conv);
 int					ft_count_stars(char *piece);
 int					check_count(char *str);
 int					record_left_corner(char *piece);
+int	ft_cover_bot_rev(char *map, char *piece, int *tab, int e_co, int med_e, int play);
+int	ft_cover_top_rev(char *map, char *piece, int *tab, int place, int med_e, int play);
+int	ft_cover_bottom_place(char *map, char *piece, int *tab, int e_co, int med_e, int play);
+int	ft_cover_top_place(char *map, char *piece, int *tab, int place, int med_e, int play);
+int	ft_check_dark_side(int e_corp, int med_e);
+int	ft_check_mediane(char *map, int med_f, int med_e);
+int	ft_place_anywhere(char *map, char *piece, int *tab,char play);
+int	ft_mediane_stg(char *map, char *piece, int *tab, int med_f, char play);
 
 
-char	*ft_place_i(char *str, char *piece, int *tab, int i);
-void	call_place(char *str, int *tab, t_car *car, t_pos *pos);
+void	call_place(char *str, int *tab, t_car *car, t_pos *pos, char *dst);
+char	*ft_place_i(char *str, char *piece, int *tab, int i, char play);
 
 
 

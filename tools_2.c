@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/13 15:12:01 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/15 11:21:28 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/16 23:37:37 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ft_convert_y(char *map, int conv)
 	while (art.i >= 0)
 	{
 		if (map[art.i] == '\n' || art.i == 0)
-			return (art.y - 1);
+			return (art.y);
 		art.i--;
 		art.y++;
 	}

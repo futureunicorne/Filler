@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 18:26:09 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/15 17:28:18 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/17 07:30:49 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,13 @@ int		ft_start_place(char *map, char play)
 	return (art.i);
 }
 
-int		ft_enemy_start_place(char *map, char play2)
+int		ft_enemy_start_place(char *map, char play)
 {
 	t_art art;
 
 	ft_memset(&art, 0, sizeof(t_art));
-	while (map[art.i] != play2)
+	art.play2 = ft_enemy_letter(play);
+	while (map[art.i] != art.play2)
 		art.i++;
 	return (art.i);
 }
@@ -45,31 +46,36 @@ char	ft_enemy_letter(int play)
 
 
 
-int		ft_check_battle(char *map, char *piece, char play, int x_map, int y_map)
+int		ft_check_battle(t_ply *ref)
 {
 	t_art art;
-
 	ft_memset(&art, 0, sizeof(t_art));
 
-	if (piece == NULL)
+	if (ref->piece == NULL)
 		return (0);
-	if (x_map || y_map)
+	if (ref->x || ref->y)
 	{
-		x_map =  art.x_map;
-		y_map =  art.y_map;
+		art.x_map = ref->x;
+		art.y_map = ref->y;
 	}
-	art.i = ft_place_piece(map, piece, play, &art);
-	art.diff = record_left_corner(piece);
+	art.i = ft_place_piece(ref->map, ref->piece, ref->play, &art);
+	art.diff = record_left_corner(ref->piece);
 	if (art.i >= 0)
 	{
-		art.x = ft_convert_x(map, art.i - art.diff);
-		art.y = ft_convert_y(map, art.i - art.diff) - 1;
+		art.x = ft_convert_x(ref->map, art.i);
+		art.y = ft_convert_y(ref->map, art.i - 1) - art.diff;
 		ft_putnbr(art.x);
 		ft_putchar(' ');
 		ft_putnbr(art.y);
 		ft_putchar('\n');
 	}
 	else
+	{
+		ft_putnbr('0');
+		ft_putchar(' ');
+		ft_putnbr('0');
+		ft_putchar('\n');
 		return (0);
+	}
 	return (1);
 }

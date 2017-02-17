@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/12 23:32:20 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/16 11:43:48 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/16 14:02:06 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	call_place_i(char *str, int *tab, t_car *car, t_pos *pos)
 
 		if (str[car->j] == '.')
 			car->auth++;
-		if (str[car->j] == 'o')
+		if (str[car->j] == 'O')
 			pos->cpt++;
 		car->k = car->k + 2;
 	}
@@ -46,7 +46,7 @@ int		ft_check_place_i(char *str, char *piece, int *tab, int i, char play)
 		pos.star = ft_count_stars(piece);
 		car.j = i;
 		car.k = 0;
-		while (str[car.j] ^ (car.k == pos.star * 2))
+		while ((str[car.j] != '\0') ^ (car.k == pos.star * 2))
 		{
 			call_place_i(str, tab, &car, &pos);
 			if (car.auth == pos.star - 1 && pos.cpt == 1)

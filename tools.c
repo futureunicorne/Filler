@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/11 12:49:55 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/15 16:41:14 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/16 13:59:24 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	ft_record_playnbr(int fd)
 
 	ft_memset(&ref, 0, sizeof(t_ply));
 	get_next_line(fd, &ref.line1);
-	//dprintf(2, "joueur = %s\n", ref.line1);
+	printf("joueur = %s\n", ref.line1);
 	ref.nb = ft_atoi(ref.line1 + 10);
 	if (ref.nb == 1)
 		return ('O');
@@ -35,9 +35,10 @@ int		*ft_record_size_map(int fd)
 	if ((ref.tab = (int*)malloc(sizeof(int) * 3)) == 0)
 		return (0);
 	get_next_line(fd, &ref.line1);
-	//dprintf(2, "plateau = %s\n", ref.line1);
 	ref.tab[0] = ft_atoi(ref.line1 + 8);
 	ref.tab[1] = ft_atoi(ref.line1 + 10);
+	printf("plateau x = %d\n", ref.tab[0]);
+	printf("plateau y = %d\n", ref.tab[1]);
 	return (ref.tab);
 }
 
@@ -49,11 +50,11 @@ int		*ft_record_size_piece(int fd)
 	if ((ref.tab = (int*)malloc(sizeof(int) * 3)) == 0)
 		return (0);
 	get_next_line(fd, &ref.line1);
-	//dprintf(2, "sizep = %s\n", ref.line1);
+	printf("sizep = %s\n", ref.line1);
 	ref.tab[0] = ft_atoi(ref.line1 + 6);
 	ref.tab[1] = ft_atoi(ref.line1 + 8);
-	//dprintf(2, "xp = %d\n", ref.tab[0]);
-	//dprintf(2, "xy = %d\n", ref.tab[1]);
+	printf("xp = %d\n", ref.tab[0]);
+	printf("xy = %d\n", ref.tab[1]);
 	return (ref.tab);
 }
 
@@ -63,7 +64,7 @@ char	*ft_record_map(int lgt, int fd)
 
 	ft_memset(&ref, 0, sizeof(t_ply));
 	get_next_line(fd, &ref.line1);
-	//dprintf(2, "nul = %s\n", ref.line1);
+	printf("nul = %s\n", ref.line1);
 	ref.map = "";
 	while (ref.i < lgt)
 	{
@@ -72,7 +73,7 @@ char	*ft_record_map(int lgt, int fd)
 		ref.map = ft_strjoin(ref.map, "\n");
 		ref.i++;
 	}
-	//dprintf(2, "map = \n%s\n", ref.map);
+	printf("map = \n%s\n", ref.map);
 
 	return (ref.map);
 }
@@ -90,6 +91,6 @@ char	*ft_record_piece(int lgt, int fd)
 		ref.map = ft_strjoin(ref.map, "\n");
 		ref.i++;
 	}
-	//dprintf(2, "piece = \n%s", ref.map);
+	printf("piece = \n%s", ref.map);
 	return (ref.map);
 }
