@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 11:18:23 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/16 19:34:27 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/17 10:45:46 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	call_place(char *str, int *tab, t_car *car, t_pos *pos, char *dst)
 	{
 		if (str[car->j] == '.')
 		{
-			dst[car->j] = 'O';
+			dst[car->j] = 'o';
 			car->auth++;
 		}
 		else if (str[car->j] == 'O' && pos->cpt < 2)

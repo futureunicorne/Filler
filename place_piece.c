@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/14 18:18:58 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/17 08:23:09 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/17 18:13:10 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ void	ft_median_class(char *map, char *piece, t_stg *stg, char play)
 
 	f = stg->med_f + 18;
 	e = stg->med_e + 18;
-	printf("f= %d\n", f);
-	printf("e = %d\n", e);
 	if (stg->pos >= f && stg->pos <= e)
 	{
 		if (ft_check_mediane(map, stg->med_f, stg->med_e))
@@ -50,6 +48,25 @@ void	ft_strategy_attack(char *map, char *piece, t_stg *stg, char play)
 
 int	ft_place_piece(char *map, char *piece, char play, t_art *art)
 {
+	int i;
+	int *tab;
+
+	if (art == NULL)
+		return (0);
+	i = 0;
+	tab = ft_relative_pos(piece);
+	while (map[i])
+	{
+		if (ft_check_place_i(map, piece, tab, i, play) != -1)
+			return (i);
+		i++;
+	}
+	return (-1);
+}
+
+/*
+int	ft_place_piece(char *map, char *piece, char play, t_art *art)
+{
 	t_stg stg;
 
 	ft_memset(&stg, 0, sizeof(t_stg));
@@ -57,10 +74,6 @@ int	ft_place_piece(char *map, char *piece, char play, t_art *art)
 	stg.pos = ft_start_place(map, play);
 	stg.e_co = ft_enemy_start_place(map, play);
 	stg.med_f = ((ft_strlen(map) / 2) - ((art->x_map / 2) + 2));
-	stg.med_e = ((ft_strlen(map) / 2) - ((art->x_map / 2) + 2)) + art->y_map -1;
-	printf("pos = %d\n", stg.pos);
-	printf("med_f= %d\n", stg.med_f);
-	printf("med_e = %d\n", stg.med_e);
 	ft_median_class(map, piece, &stg, play);
 	ft_strategy_attack(map, piece, &stg, play);
 	if (stg.res == -1)
@@ -69,3 +82,4 @@ int	ft_place_piece(char *map, char *piece, char play, t_art *art)
 		return (stg.res);
 	return (-1);
 }
+*/

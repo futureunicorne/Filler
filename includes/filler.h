@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 17:18:44 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/17 00:10:33 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/17 18:06:39 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,9 @@ typedef	struct		s_pos
 	int				cpt;
 	int				star;
 	int				place;
+	int				flag;
+	int				piece;
+	int				y_map;
 }					t_pos;
 
 typedef	struct		s_var

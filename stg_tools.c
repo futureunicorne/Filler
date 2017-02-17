@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 23:49:28 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/17 08:24:17 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/17 14:53:11 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,17 @@
 int record_left_corner(char *piece)
 {
 	int i;
+	int cpt;
 
 	i = 0;
+	cpt = 0;
 	while (piece[i])
 	{
+		if (piece[i] == '\n')
+			cpt = -1;
 		if (piece[i] == '*')
-			return (i);
+			return (cpt);
+		cpt++;
 		i++;
 	}
 	return (-1);
