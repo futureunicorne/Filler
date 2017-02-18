@@ -6,12 +6,11 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/12 23:32:20 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/18 14:25:34 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/18 17:08:10 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
-
 
 int		check_diff(char *str, int i)
 {
@@ -81,21 +80,30 @@ int		ckeck_place_piece(char *str, char *piece, int i, char play)
 		l++;
 		pos.flag++;
 	}
+	printf("res ====== %d\n", ft_check_line(str));
+	printf("flag ====== %d\n", pos.flag2);
 	while (piece[j] && str[i])
 	{
+		printf("NEWW BOUCLE\n\n");
 		printf("chari = %c\n", str[i]);
+		printf("leni = %d\n", i);
 		printf("charj = %c\n", piece[j]);
-		printf("len = %d\n", i);
-		printf("len = %d\n", j);
+		printf("lenj = %d\n", j);
+
+
 		if (str[i] == '.' && piece[j] == '*')
 			pos.auth++;
 		if (str[i] == play && piece[j] == '*')
 			pos.cpt++;
-		if (i == (ft_check_line(str) + pos.flag2))
+		printf("cpt   =%d\n", pos.cpt);
+		printf("auth  =%d\n", pos.auth);
+		if (i == (ft_check_line(str) + pos.flag2) - 1)
 			j++;
-		if (piece[j] != '\n')
+		if ((piece[j] != '\n'|| (piece[j] == '\n' && piece[j + 1] == '\0')) &&
+		(i != (ft_check_line(str) + pos.flag2) - 1))
 			j++;
 		i++;
+
 	}
 	printf("cpt   =%d\n", pos.cpt);
 	printf("auth  =%d\n", pos.auth);

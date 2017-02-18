@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/11 12:49:55 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/16 13:59:24 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/18 15:43:23 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 char	ft_record_playnbr(int fd)
 {
+
 	t_ply ref;
 
 	ft_memset(&ref, 0, sizeof(t_ply));

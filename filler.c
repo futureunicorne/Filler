@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 18:26:09 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/18 10:52:20 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/18 15:50:50 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 int		ft_start_place(char *map, char play)
 {
+
 	t_art art;
 
 	ft_memset(&art, 0, sizeof(t_art));
 	while (map[art.i] != play)
 		art.i++;
 	return (art.i);
+
 }
 
 int		ft_enemy_start_place(char *map, char play)
@@ -58,6 +60,7 @@ int		ft_check_battle(t_ply *ref)
 		art.x_map = ref->x;
 		art.y_map = ref->y;
 	}
+
 	art.i = ft_place_piece(ref->map, ref->piece, ref->play, &art);
 	art.diff = record_left_corner(ref->piece);
 	printf("art.i = %d\n", art.i);
