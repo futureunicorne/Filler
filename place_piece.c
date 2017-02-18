@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/14 18:18:58 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/18 10:53:16 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/18 13:39:27 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_median_class(char *map, char *piece, t_stg *stg, char play)
 	if (stg->pos >= f && stg->pos <= e)
 	{
 		if (ft_check_mediane(map, stg->med_f, stg->med_e))
-			stg->res = ft_mediane_stg(map, piece, stg->tab, stg->med_f, play);
+			stg->res = ft_mediane_stg(map, piece, stg->med_f, play);
 	}
 }
 
@@ -30,18 +30,18 @@ void	ft_strategy_attack(char *map, char *piece, t_stg *stg, char play)
 {
 	if (ft_check_dark_side(stg->e_co, stg->med_e) == 0)
 	{
-		stg->res = ft_cover_top_place(map, piece, stg->tab, stg->e_co,
+		stg->res = ft_cover_top_place(map, piece, stg->e_co,
 		stg->med_e, play);
 		if (stg->res == -1)
-			stg->res = ft_cover_top_rev(map, piece, stg->tab, stg->e_co,
+			stg->res = ft_cover_top_rev(map, piece, stg->e_co,
 			stg->med_e, play);
 	}
 	else if (ft_check_dark_side(stg->e_co, stg->med_e) == 1)
 	{
-		stg->res = ft_cover_bottom_place(map, piece, stg->tab, stg->pos,
+		stg->res = ft_cover_bottom_place(map, piece, stg->pos,
 		stg->med_e, play);
 		if (stg->res == -1)
-			stg->res = ft_cover_bot_rev(map, piece, stg->tab, stg->e_co,
+			stg->res = ft_cover_bot_rev(map, piece, stg->e_co,
 			stg->med_e, play);
 	}
 }
@@ -49,16 +49,14 @@ void	ft_strategy_attack(char *map, char *piece, t_stg *stg, char play)
 int	ft_place_piece(char *map, char *piece, char play, t_art *art)
 {
 	int i;
-	int *tab;
 
 	if (art == NULL)
 		return (0);
 	i = 0;
-	tab = ft_relative_pos(piece);
-	while (i < 1)
+	while (map[i])
 	{
-		if (ft_check_place_i(map, piece, tab, 127, play) != -1)
-			return (127);
+		if (ckeck_place_piece(map, piece, i, play) != -1)
+			return (i);
 		i++;
 	}
 	return (-1);

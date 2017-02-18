@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 17:18:44 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/17 20:36:38 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/18 13:03:57 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ typedef	struct		s_pos
 	int				piece;
 	int				y_map;
 	int				check;
+	int				flag2;
+	int				auth;
 }					t_pos;
 
 typedef	struct		s_var
@@ -114,8 +116,6 @@ int					ft_enemy_start_place(char *map, char play2);
 int					ft_start_place(char *map, char play);
 int					*ft_relative_pos(char *str);
 void				ft_relative_pos2(char *str, t_var *var, t_pos *pos);
-int					ft_check_place_i(char *str, char *piece, int *tab, int i, char play);
-void				call_place_i(char *str, int *tab, t_car *car, t_pos *pos);
 int					ft_place_piece(char *map, char *piece, char play, t_art *art);
 int					ft_optimal_check(char *map, char play, int flag, t_art *art);
 int					ft_convert_x(char *map, int conv);
@@ -123,14 +123,16 @@ int					ft_convert_y(char *map, int conv);
 int					ft_count_stars(char *piece);
 int					check_count(char *str);
 int					record_left_corner(char *piece);
-int	ft_cover_bot_rev(char *map, char *piece, int *tab, int e_co, int med_e, int play);
-int	ft_cover_top_rev(char *map, char *piece, int *tab, int place, int med_e, int play);
-int	ft_cover_bottom_place(char *map, char *piece, int *tab, int e_co, int med_e, int play);
-int	ft_cover_top_place(char *map, char *piece, int *tab, int place, int med_e, int play);
+int	ft_cover_bot_rev(char *map, char *piece, int e_co, int med_e, int play);
+int	ft_cover_top_rev(char *map, char *piece, int place, int med_e, int play);
+int	ft_cover_bottom_place(char *map, char *piece, int e_co, int med_e, int play);
+int	ft_cover_top_place(char *map, char *piece, int place, int med_e, int play);
 int	ft_check_dark_side(int e_corp, int med_e);
 int	ft_check_mediane(char *map, int med_f, int med_e);
-int	ft_place_anywhere(char *map, char *piece, int *tab,char play);
-int	ft_mediane_stg(char *map, char *piece, int *tab, int med_f, char play);
+int	ft_place_anywhere(char *map, char *piece,char play);
+int	ft_mediane_stg(char *map, char *piece, int med_f, char play);
+int		ckeck_place_piece(char *str, char *piece, int i, char play);
+
 
 
 void	call_place(char *str, int *tab, t_car *car, t_pos *pos, char *dst);

@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 23:49:28 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/17 18:16:20 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/18 13:39:56 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,38 +50,35 @@ int	ft_check_mediane(char *map, int med_f, int med_e)
 	return (0);
 }
 
-int	ft_mediane_stg(char *map, char *piece, int *tab, int med_f, char play)
+int	ft_mediane_stg(char *map, char *piece, int med_f, char play)
 {
 	int i;
 
 	i = med_f;
 	while (map[i] != '\0')
 	{
-		if (ft_check_place_i(map, piece, tab, i, play) != -1)
-		{
-			ft_place_i(map, piece, tab, i, play);
+		if (ckeck_place_piece(map, piece, i, play) != -1)
 			return (i);
-		}
 		i++;
 	}
 	i = med_f;
 	while (i >= 0)
 	{
-		if (ft_check_place_i(map, piece, tab, i, play) != -1)
+		if (ckeck_place_piece(map, piece, i, play) != -1)
 			return (i);
 		i--;
 	}
 	return (-1);
 }
 
-int	ft_place_anywhere(char *map, char *piece, int *tab,char play)
+int	ft_place_anywhere(char *map, char *piece, char play)
 {
 	int i;
 
 	i = 0;
 	while (map[i] != '\0')
 	{
-		if (ft_check_place_i(map, piece, tab, i, play) != -1)
+		if (ckeck_place_piece(map, piece, i, play) != -1)
 			return (i);
 		i++;
 	}

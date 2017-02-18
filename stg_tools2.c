@@ -6,13 +6,13 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 23:52:09 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/17 18:16:23 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/18 13:40:27 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/filler.h"
 
-int	ft_cover_bot_rev(char *map, char *piece, int *tab, int e_co, int med_e, int play)
+int	ft_cover_bot_rev(char *map, char *piece, int e_co, int med_e, int play)
 {
 	int i;
 
@@ -21,17 +21,14 @@ int	ft_cover_bot_rev(char *map, char *piece, int *tab, int e_co, int med_e, int 
 		e_co = 0;
 	while (i <= med_e)
 	{
-		if (ft_check_place_i(map, piece, tab, i, play) != -1)
-		{
-			ft_place_i(map, piece, tab, i, play);
+		if (ckeck_place_piece(map, piece, i, play) != -1)
 			return (i);
-		}
 		i++;
 	}
 	return (-1);
 }
 
-int	ft_cover_top_rev(char *map, char *piece, int *tab, int place, int med_e, int play)
+int	ft_cover_top_rev(char *map, char *piece, int place, int med_e, int play)
 {
 	int i;
 
@@ -40,52 +37,49 @@ int	ft_cover_top_rev(char *map, char *piece, int *tab, int place, int med_e, int
 		place = 0;
 	while (map[i])
 	{
-		if (ft_check_place_i(map, piece, tab, i, play) != -1)
+		if (ckeck_place_piece(map, piece, i, play) != -1)
 			return (i);
 		i++;
 	}
 	return (-1);
 }
 
-int	ft_cover_bottom_place(char *map, char *piece, int *tab, int e_co, int med_e, int play)
+int	ft_cover_bottom_place(char *map, char *piece, int e_co, int med_e, int play)
 {
 	int i;
 
 	i = e_co;
 	while (map[i] != '\0')
 	{
-		if (ft_check_place_i(map, piece, tab, i, play) != -1)
-		{
-			ft_place_i(map, piece, tab, i, play);
+		if (ckeck_place_piece(map, piece, i, play) != -1)
 			return (i);
-		}
 		i++;
 	}
 	i = e_co;
 	while (i >= med_e)
 	{
-		if (ft_check_place_i(map, piece, tab, i, play) != -1)
+		if (ckeck_place_piece(map, piece, i, play) != -1)
 			return (i);
 		i--;
 	}
 	return (-1);
 }
 
-int	ft_cover_top_place(char *map, char *piece, int *tab, int place, int med_e, int play)
+int	ft_cover_top_place(char *map, char *piece, int place, int med_e, int play)
 {
 	int i;
 
 	i = place;
 	while (i <= med_e)
 	{
-		if (ft_check_place_i(map, piece, tab, i, play) != -1)
+		if (ckeck_place_piece(map, piece, i, play) != -1)
 			return (i);
 		i++;
 	}
 	i = place;
 	while (i >= 0)
 	{
-		if (ft_check_place_i(map, piece, tab, i, play) != -1)
+		if (ckeck_place_piece(map, piece, i, play) != -1)
 			return (i);
 		i--;
 	}
