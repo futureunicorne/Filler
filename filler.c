@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 18:26:09 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/18 15:50:50 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/20 00:26:26 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,9 @@ int		ft_check_battle(t_ply *ref)
 	if (art.i >= 0)
 	{
 		art.x = ft_convert_x(ref->map, art.i);
+		art.x = ft_correction_x(ref->piece);
 		art.y = ft_convert_y(ref->map, art.i - 1);
+		art.x = ft_correction_y(ref->piece);
 		ft_putnbr(art.x);
 		ft_putchar(' ');
 		ft_putnbr(art.y);
