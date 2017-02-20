@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 18:26:09 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/20 00:26:26 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/20 08:53:37 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int		ft_start_place(char *map, char play)
 {
-
 	t_art art;
 
 	ft_memset(&art, 0, sizeof(t_art));
@@ -46,13 +45,10 @@ char	ft_enemy_letter(int play)
 	return (play2);
 }
 
-
-
 int		ft_check_battle(t_ply *ref)
 {
 	t_art art;
 	ft_memset(&art, 0, sizeof(t_art));
-
 	if (ref->piece == NULL)
 		return (0);
 	if (ref->x || ref->y)
@@ -60,16 +56,15 @@ int		ft_check_battle(t_ply *ref)
 		art.x_map = ref->x;
 		art.y_map = ref->y;
 	}
-
 	art.i = ft_place_piece(ref->map, ref->piece, ref->play, &art);
 	art.diff = record_left_corner(ref->piece);
 	printf("art.i = %d\n", art.i);
 	if (art.i >= 0)
 	{
 		art.x = ft_convert_x(ref->map, art.i);
-		art.x = ft_correction_x(ref->piece);
+		art.x = art.x - ft_correc_x(ref->piece);
 		art.y = ft_convert_y(ref->map, art.i - 1);
-		art.x = ft_correction_y(ref->piece);
+		art.y = art.y - ft_piece_diff(ref->piece);
 		ft_putnbr(art.x);
 		ft_putchar(' ');
 		ft_putnbr(art.y);

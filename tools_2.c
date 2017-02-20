@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/13 15:12:01 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/18 17:40:59 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/20 01:41:50 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,26 @@ int	ft_convert_x(char *map, int conv)
 	return (art.x);
 }
 
+int ft_correc_x(char *str)
+{
+	t_art art;
+
+	ft_memset(&art, 0, sizeof(t_art));
+	while (str[art.i] != '*')
+	{
+		if (str[art.i] == '\n')
+			art.x++;
+		art.i++;
+	}
+	return (art.x);
+}
+
 int	ft_convert_y(char *map, int conv)
 {
 	t_art art;
 
 	ft_memset(&art, 0, sizeof(t_art));
-	while (art.i<= conv)
+	while (art.i <= conv)
 		art.i++;
 	while (map[art.i] != '\n' && art.i >= 0)
 	{

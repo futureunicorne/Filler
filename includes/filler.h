@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 17:18:44 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/19 22:51:39 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/20 09:08:58 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,8 +138,12 @@ int		ckeck_place_piece(char *str, char *piece, int i, char play);
 
 void	call_place(char *str, int *tab, t_car *car, t_pos *pos, char *dst);
 char	*ft_place_i(char *str, char *piece, int *tab, int i, char play);
-char		*ft_reduct_piece(char *str, char *dst, int lim_g, int lim_d);
-int	ft_control_check(char *map, char *piece, int i, char play);
+char	*ft_reduct_piece(char *str, char *dst, int lim_g, int lim_d);
+int		ft_control_check(char *map, char *piece, int i, char play);
+int 	ft_correc_x(char *str);
+int		ft_piece_diff(char *str);
+
+
 
 
 

@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/14 18:18:58 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/19 23:38:06 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/20 09:17:32 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,12 @@ int	ft_place_piece(char *map, char *piece, char play, t_art *art)
 	int i;
 	if (art == NULL)
 		return (0);
-	i = 0;
-	while (map[i])
+	i = 120;
+	while (i >= 0)
 	{
 		if (ft_control_check(map, piece, i, play) == 1)
 			return (i);
-		i++;
+		i--;
 	}
 	return (-1);
 }
@@ -67,14 +67,13 @@ int	ft_place_piece(char *map, char *piece, char play, t_art *art)
 	t_stg stg;
 
 	ft_memset(&stg, 0, sizeof(t_stg));
-	stg.tab = ft_relative_pos(piece);
 	stg.pos = ft_start_place(map, play);
 	stg.e_co = ft_enemy_start_place(map, play);
 	stg.med_f = ((ft_strlen(map) / 2) - ((art->x_map / 2) + 2));
-	ft_median_class(map, piece, &stg, play);
+//	ft_median_class(map, piece, &stg, play);
 	ft_strategy_attack(map, piece, &stg, play);
 	if (stg.res == -1)
-		stg.res = ft_place_anywhere(map, piece, stg.tab, play);
+		stg.res = ft_place_anywhere(map, piece, play);
 	if (stg.res >= 0)
 		return (stg.res);
 	return (-1);
