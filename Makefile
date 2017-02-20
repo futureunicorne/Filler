@@ -6,7 +6,7 @@
 #    By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/24 11:53:06 by hel-hadi          #+#    #+#              #
-#    Updated: 2017/02/19 18:51:37 by hel-hadi         ###   ########.fr        #
+#    Updated: 2017/02/20 10:39:32 by hel-hadi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ $(NAME):
 		make -C libft fclean && make -C libft
 		$(CC) $(FLAGS) -I$(HEADER) -c $(SRCS)
 		$(CC) $(OBJ) -L./libft/ -lft $(OPT2) $(NAME)
+		cp $(NAME) players
 		@echo "\033[36m === Creation de l'executable filler ===\033[0m"
 
 

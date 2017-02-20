@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/15 11:18:23 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/17 10:45:46 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/20 10:37:53 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ char	*ft_place_i(char *str, char *piece, int *tab, int i, char play)
 			//printf("j  = %d\n",car.j);
 			if (car.auth == pos.star - 1 && pos.cpt == 1)
 			{
-				printf("new = \n%s\n", dst);
 				return (dst);
 			}
 			car.j++;

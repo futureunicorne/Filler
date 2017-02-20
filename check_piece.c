@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/12 23:32:20 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/20 01:57:08 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/20 10:59:07 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,7 +187,6 @@ char		*ft_reduct_piece(char *str, char *dst, int lim_g, int lim_d)
 		pos.i++;
 		pos.x++;
 	}
-	printf("%s", dst);
 	return (dst);
 }
 
@@ -200,7 +199,6 @@ int ft_strlim(char *str)
 	{
 		if (str[i] == 'O')
 		{
-			printf("II  = %d\n", i );
 			return (i);
 		}
 		i++;
@@ -229,24 +227,13 @@ int		ckeck_place_piece(char *str, char *piece, int i, char play)
 		l++;
 		pos.flag++;
 	}
-	printf("PIEEEEECE %s\n", piece);
-	printf("res ====== %d\n", ft_check_line(str));
-	printf("flag ====== %d\n", pos.flag2);
 	pos.check = 1;
 	while (piece[j] && str[i])
 	{
-		printf("NEWW BOUCLE\n\n");
-		printf("chari = %c\n", str[i]);
-		printf("leni = %d\n", i);
-		printf("charj = %c\n", piece[j]);
-		printf("lenj = %d\n", j);
 		if (str[i] == '.' && piece[j] == '*')
 			pos.auth++;
 		if (str[i] == play && piece[j] == '*')
 			pos.cpt++;
-		printf("cpt   =%d\n", pos.cpt);
-		printf("auth  =%d\n", pos.auth);
-		printf("check line %d\n", (ft_check_line(str) * pos.check + pos.flag2 - 1));
 		if ((piece[j] != '\n'|| (piece[j] == '\n' && piece[j + 1] == '\0')) &&
 		(i != (ft_check_line(str) + pos.flag2) - 1))
 			j++;
@@ -258,8 +245,6 @@ int		ckeck_place_piece(char *str, char *piece, int i, char play)
 		i++;
 
 	}
-	printf("cpt   =%d\n", pos.cpt);
-	printf("auth  =%d\n", pos.auth);
 	if (pos.cpt == 1 && pos.auth == pos.star - 1)
 		return (1);
 	return (0);
@@ -281,4 +266,3 @@ int	ft_control_check(char *map, char *piece, int i, char play)
 		return (1);
 	return (0);
 }
-

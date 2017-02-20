@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 18:26:09 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/20 08:53:37 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/20 10:58:17 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ int		ft_check_battle(t_ply *ref)
 	}
 	art.i = ft_place_piece(ref->map, ref->piece, ref->play, &art);
 	art.diff = record_left_corner(ref->piece);
-	printf("art.i = %d\n", art.i);
 	if (art.i >= 0)
 	{
 		art.x = ft_convert_x(ref->map, art.i);
@@ -72,9 +71,9 @@ int		ft_check_battle(t_ply *ref)
 	}
 	else
 	{
-		ft_putnbr('0');
+		ft_putnbr(0);
 		ft_putchar(' ');
-		ft_putnbr('0');
+		ft_putnbr(0);
 		ft_putchar('\n');
 		return (0);
 	}
