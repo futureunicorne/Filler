@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/14 18:18:58 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/20 17:53:05 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/20 17:56:17 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,14 @@ int 	ft_check_position(char *map, int med_f)
 	return (0);
 }
 
-int		ft_check_tiers
+int		ft_check_tiers(char *map, char play)
+{
+	int cpt;
+
+
+
+
+}
 
 void	ft_strategy_attack(char *map, char *piece, t_stg *stg, char play)
 {
@@ -118,8 +125,7 @@ void	ft_strategy_attack(char *map, char *piece, t_stg *stg, char play)
 			stg->res =  ft_attack_position(map, piece, stg->e_co, play);
 		}
 	}
-	//stg->res = ft_attack_position(map, piece, stg->e_co, play);
-
+	stg->res = ft_attack_position(map, piece, stg->e_co, play);
 	if (stg->res == - 1)
 		stg->res = ft_place_anywhere(map, piece, play);
 }
