@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 18:26:09 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/20 10:58:17 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/20 16:45:18 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ int		ft_check_battle(t_ply *ref)
 	{
 		art.x_map = ref->x;
 		art.y_map = ref->y;
+		art.start = ref->start;
+		art.e_co  = ref->e_co;
 	}
 	art.i = ft_place_piece(ref->map, ref->piece, ref->play, &art);
 	art.diff = record_left_corner(ref->piece);

@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 17:18:44 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/20 09:08:58 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/20 16:54:39 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ typedef struct	s_art
 	int 	min;
 	int		i;
 	int		j;
+	int		start;
+	int		e_co;
 	int		x;
 	int		y;
 	int		x_map;
@@ -126,8 +128,8 @@ int					check_count(char *str);
 int					record_left_corner(char *piece);
 int	ft_cover_bot_rev(char *map, char *piece, int e_co, int med_e, int play);
 int	ft_cover_top_rev(char *map, char *piece, int place, int med_e, int play);
-int	ft_cover_bottom_place(char *map, char *piece, int e_co, int med_e, int play);
-int	ft_cover_top_place(char *map, char *piece, int place, int med_e, int play);
+int	ft_cover_bottom_place(char *map, char *piece, int e_co, int play);
+int	ft_cover_top_place(char *map, char *piece, int med_e, int play);
 int	ft_check_dark_side(int e_corp, int med_e);
 int	ft_check_mediane(char *map, int med_f, int med_e);
 int	ft_place_anywhere(char *map, char *piece,char play);

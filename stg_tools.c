@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 23:49:28 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/20 09:00:47 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/20 16:12:36 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	ft_check_mediane(char *map, int med_f, int med_e)
 			cpt++;
 		med_f++;
 	}
-	ecart = (ecart / 10) * 2;
+	ecart = (ecart / 10) * 6;
 	if (cpt >= ecart)
 		return (1);
 	return (0);
