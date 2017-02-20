@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/14 18:18:58 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/20 11:30:20 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/20 12:14:01 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,14 @@ void	ft_median_class(char *map, char *piece, t_stg *stg, char play)
 
 void	ft_strategy_attack(char *map, char *piece, t_stg *stg, char play)
 {
-	if (ft_check_dark_side(stg->e_co, stg->med_e) == 0)
+	if (ft_check_dark_side(stg->e_co, stg->pos) == 1)
+	{
+		stg->res = ft_cover_bottom_place(map, piece, stg->pos=, play);
+		if (stg->res == -1)
+			stg->res = ft_cover_bot_rev(map, piece, stg->e_co,
+			stg->med_e, play);
+	}
+	else if (ft_check_dark_side(stg->e_co, stg->pos) == 1)
 	{
 		stg->res = ft_cover_top_place(map, piece, stg->e_co,
 		stg->med_e, play);
@@ -36,14 +43,7 @@ void	ft_strategy_attack(char *map, char *piece, t_stg *stg, char play)
 			stg->res = ft_cover_top_rev(map, piece, stg->e_co,
 			stg->med_e, play);
 	}
-	else if (ft_check_dark_side(stg->e_co, stg->med_e) == 1)
-	{
-		stg->res = ft_cover_bottom_place(map, piece, stg->pos,
-		stg->med_e, play);
-		if (stg->res == -1)
-			stg->res = ft_cover_bot_rev(map, piece, stg->e_co,
-			stg->med_e, play);
-	}
+
 }
 /*
 int	ft_place_piece(char *map, char *piece, char play, t_art *art)

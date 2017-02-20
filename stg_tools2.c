@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 23:52:09 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/20 10:23:09 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/20 11:51:13 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	ft_cover_bottom_place(char *map, char *piece, int e_co, int med_e, int play)
 		i++;
 	}
 	i = e_co;
-	while (i >= med_e)
+	while (i >= 0)
 	{
 		if (ft_control_check(map, piece, i, play) == 1)
 			return (i);
