@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/12 23:32:20 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/20 11:35:14 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/21 13:00:02 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -219,7 +219,6 @@ int		ckeck_place_piece(char *str, char *piece, int i, char play)
 	ft_memset(&pos, 0, sizeof(pos));
 	pos.flag2 = i;
 	pos.star = ft_count_stars2(piece);
-	ft_strlim(str);
 	while (l < k)
 	{
 		if (str[l] == '\n')
