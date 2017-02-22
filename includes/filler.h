@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 17:18:44 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/22 16:56:14 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/22 19:04:05 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ int					*ft_record_size_piece(int fd);
 char				*ft_record_map(int lgt, int fd);
 char				*ft_record_piece(int lgt, int fd);
 int					ft_check_battle(t_ply *ref);
-char				ft_enemy_letter(int play);
+char				ft_enemy_letter(char play);
 int					ft_enemy_start_place(char *map, char play2);
 int					ft_start_place(char *map, char play);
 int					*ft_relative_pos(char *str);

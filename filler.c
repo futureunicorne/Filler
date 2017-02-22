@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 18:26:09 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/20 18:31:26 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/22 19:03:53 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ int		ft_enemy_start_place(char *map, char play)
 	return (art.i);
 }
 
-char	ft_enemy_letter(int play)
+char	ft_enemy_letter(char play)
 {
-	int play2;
+	char play2;
 
 	if (play == 'O')
 		play2 = 'X';

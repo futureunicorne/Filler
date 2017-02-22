@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 23:52:09 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/22 17:39:27 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/22 17:58:39 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,20 +63,6 @@ int	ft_cover_bottom_place(char *map, char *piece, int med_f, int play)
 	return (-1);
 }
 
-int	ft_cover_top_place(char *map, char *piece, int med_e, int play)
-{
-	int i;
-
-	i = 16;
-	med_e = 0;
-	while (map[i])
-	{
-		if (ft_control_check(map, piece, i, play) == 1)
-			return (i);
-		i++;
-	}
-	return (-1);
-}
 
 int	ft_check_dark_side(int start, int e_co )
 {
