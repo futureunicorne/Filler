@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 17:18:44 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/20 16:54:39 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/22 16:56:14 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ typedef struct		s_stg
 	int				med_e;
 	int				e_co;
 	int				*tab;
+	int				play2;
 }					t_stg;
 
 char				ft_record_playnbr(int fd);
@@ -144,12 +145,14 @@ char	*ft_reduct_piece(char *str, char *dst, int lim_g, int lim_d);
 int		ft_control_check(char *map, char *piece, int i, char play);
 int 	ft_correc_x(char *str);
 int		ft_piece_diff(char *str);
+int		ft_check_half_map(char *map);
+int		ft_check_half_line(char *map);
 
-
-
-
-
-
+int		ft_end_line(char *map, char play);
+int		ft_nbr_line(char *map);
+int 	ft_check_position(char *map, int med_f);
+int	ft_check_tiers(char *map, int flag, char play);
+int		ft_check_bound(char *map, int flag);
 
 
 

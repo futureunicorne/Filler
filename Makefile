@@ -6,7 +6,7 @@
 #    By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/24 11:53:06 by hel-hadi          #+#    #+#              #
-#    Updated: 2017/02/20 10:39:32 by hel-hadi         ###   ########.fr        #
+#    Updated: 2017/02/22 16:56:40 by hel-hadi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,8 @@ SRCS = 	filler.c		\
 		debug.c			\
 		stg_tools.c		\
 		stg_tools2.c	\
+		stg_tools3.c	\
+		stg_tools4.c	\
 
 OBJ = $(SRCS:.c=.o)
 OBJ1 = objets/*.o
