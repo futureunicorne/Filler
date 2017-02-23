@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/14 18:18:58 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/22 19:09:53 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/23 08:48:16 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,15 +175,65 @@ int		ft_position_e(char *map, char play2)
 	return (i);
 
 }
-int		ft_attack_position2(char *map, char *piece, int e_co, char play)
+
+int		my_position(char *map, char play)
+{
+	int i;
+
+	i = 0;
+	while (map[i] != play && map[i])
+		i++;
+	while (map[i] != '\n' && map[i])
+		i++;
+	while (map[i] != play && map[i])
+		i--;
+	return (i);
+}
+
+int		ft_check_ecart_higher(char *map, char play, char play2)
+{
+	int flag;
+	int i;
+	int cpt;
+
+	flag = my_position(map, play);
+	i = ft_position_e(map, play2);
+	cpt = 1;
+	while (i >= flag)
+	{
+		if (map[i] == '\n')
+			cpt++;
+		i++;
+	}
+	i = ft_position_e(map, play2) - (cpt *ft_nbr_line(map));
+	return (i);
+}
+
+int		ft_resolve_filler(char *map)
+{
+	int i;
+	int flag;
+
+	i = 0;
+	flag = 0;
+	while (i >= 0)
+	{
+		if (map[i] == '\n' && map[i + 1] != '\0')
+		{
+			k = -1;
+			i = i + (nbr_line(map) * 2);
+		}
+		if (k < )
+		i--;
+	}
+}
+int		ft_attack_position2(char *map, char *piece, char play)
 {
 	int i;
 	char play2;
 
-
 	play2 = ft_enemy_letter(play);
-	e_co = 0;
-	i = ft_position_e(map, play2);
+	i = ft_check_ecart_higher(map, play, play2);
 	dprintf(2, "=============================== %c\n ", play2);
 	while (i >= 0)
 	{
