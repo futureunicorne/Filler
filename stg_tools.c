@@ -6,13 +6,13 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 23:49:28 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/22 14:43:15 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/23 18:40:44 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/filler.h"
 
-int record_left_corner(char *piece)
+int		record_left_corner(char *piece)
 {
 	int i;
 	int cpt;
@@ -31,7 +31,7 @@ int record_left_corner(char *piece)
 	return (-1);
 }
 
-int	ft_place_anywhere(char *map, char *piece, char play)
+int		ft_place_anywhere(char *map, char *piece, char play)
 {
 	int i;
 
@@ -43,4 +43,82 @@ int	ft_place_anywhere(char *map, char *piece, char play)
 		i++;
 	}
 	return (-1);
+}
+
+int		ft_check_bound(char *map, int flag)
+{
+	t_pos pos;
+
+	ft_memset(&pos, 0, sizeof(t_pos));
+	pos.cpt = ft_nbr_line(map) / 6;
+	if (flag == 0)
+	{
+		pos.i = 0;
+		while (map[pos.i] && pos.auth < pos.cpt)
+		{
+			if (map[pos.i] == '\n')
+				pos.auth++;
+			pos.i++;
+		}
+	}
+	else if (pos.flag == 1)
+	{
+		pos.i = ft_strlen(map);
+		while (pos.i >= 0 && pos.auth < pos.cpt + 1)
+		{
+			if (map[pos.i] == '\n')
+				pos.auth++;
+			pos.i--;
+		}
+	}
+	return (pos.i - 1);
+}
+
+int		ft_check_tiers(char *map, int flag, char play)
+{
+	int i;
+	int cpt;
+
+	cpt = ft_check_bound(map, flag);
+	if (flag == 0)
+	{
+		i = 0;
+		while (i < cpt)
+		{
+			if (map[i] == play)
+				return (1);
+			i++;
+		}
+	}
+	if (flag == 1)
+	{
+		i = ft_strlen(map);
+		while (i > cpt)
+		{
+			if (map[i] == play)
+				return (1);
+			i--;
+		}
+	}
+	return (0);
+}
+
+int		ft_check_position(char *map, int med_f)
+{
+	int i;
+	int pts;
+	int res;
+
+	i = 0;
+	pts = 0;
+	while (i <= med_f)
+	{
+		if (map[i] == '.')
+			pts++;
+		i++;
+	}
+	res = (med_f / 10) * 2;
+	if (pts > res)
+		return (1);
+	return (0);
 }

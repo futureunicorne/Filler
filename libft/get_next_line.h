@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/23 15:45:05 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/15 09:25:31 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/23 18:46:06 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,7 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 # include "libft.h"
-/*
-typedef struct	s_pos
-{
-	int			start;
-	int			flag;
-}				t_pos;
-*/
+
 char			*check_ret(char *str, int ret);
 char			*cut_text(char *str);
 int				get_next_line(const int fd, char **line);
