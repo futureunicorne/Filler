@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 17:18:44 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/23 18:42:18 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/23 20:32:34 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct		s_ply
 	int				*tab;
 	int				*tab2;
 	char			*map;
+	char			*map2;
 	char			*piece;
 	int				start;
 	int				e_co;

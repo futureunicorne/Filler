@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/23 15:38:37 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/10 19:09:40 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/25 10:44:26 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,9 @@ int		get_next_line(int fd, char **line)
 	{
 		ret = read(fd, buf, BUFF_SIZE);
 		if (ret == -1)
+		{
 			return (-1);
+		}
 		buf[ret] = '\0';
 		*line = ft_strjoin(*line, buf);
 	}

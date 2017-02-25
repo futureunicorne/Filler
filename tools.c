@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/11 12:49:55 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/23 18:06:11 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/25 18:41:51 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ char	ft_record_playnbr(int fd)
 	ft_memset(&ref, 0, sizeof(t_ply));
 	get_next_line(fd, &ref.line1);
 	ref.nb = ft_atoi(ref.line1 + 10);
+	free(ref.line1);
 	if (ref.nb == 1)
 		return ('O');
 	else if (ref.nb == 2)
@@ -31,11 +32,12 @@ int		*ft_record_size_map(int fd)
 	t_ply ref;
 
 	ft_memset(&ref, 0, sizeof(t_ply));
-	if ((ref.tab = (int*)malloc(sizeof(int) * 3)) == 0)
-		return (0);
+	if (!(ref.tab = (int *)malloc((3) * sizeof(int))))
+		return (NULL);
 	get_next_line(fd, &ref.line1);
 	ref.tab[0] = ft_atoi(ref.line1 + 8);
 	ref.tab[1] = ft_atoi(ref.line1 + 10);
+	free(ref.line1);
 	return (ref.tab);
 }
 
@@ -44,11 +46,12 @@ int		*ft_record_size_piece(int fd)
 	t_ply ref;
 
 	ft_memset(&ref, 0, sizeof(t_ply));
-	if ((ref.tab = (int*)malloc(sizeof(int) * 3)) == 0)
-		return (0);
+	if (!(ref.tab = (int *)malloc((3) * sizeof(int))))
+		return (NULL);
 	get_next_line(fd, &ref.line1);
 	ref.tab[0] = ft_atoi(ref.line1 + 6);
 	ref.tab[1] = ft_atoi(ref.line1 + 8);
+	free(ref.line1);
 	return (ref.tab);
 }
 
@@ -59,14 +62,17 @@ char	*ft_record_map(int lgt, int fd)
 	ft_memset(&ref, 0, sizeof(t_ply));
 	get_next_line(fd, &ref.line1);
 	ref.map = "";
+	ref.map2 = "";
 	while (ref.i < lgt)
 	{
 		get_next_line(fd, &ref.line1);
-		ref.map = ft_strjoin(ref.map, ref.line1 + 4);
-		ref.map = ft_strjoin(ref.map, "\n");
+		ref.map2 = ft_strjoin(ref.map2, ref.line1 + 4);
+		free(ref.line1);
+		ref.map2 = ft_strjoin(ref.map2, "\n");
 		ref.i++;
 	}
-	return (ref.map);
+	printf("map \n%s\n", ref.map2);
+	return (ref.map2);
 }
 
 char	*ft_record_piece(int lgt, int fd)
@@ -79,6 +85,7 @@ char	*ft_record_piece(int lgt, int fd)
 	{
 		get_next_line(fd, &ref.line1);
 		ref.map = ft_strjoin(ref.map, ref.line1);
+		free(ref.line1);
 		ref.map = ft_strjoin(ref.map, "\n");
 		ref.i++;
 	}

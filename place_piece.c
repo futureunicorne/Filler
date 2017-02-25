@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/14 18:18:58 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/23 18:39:21 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/23 20:11:39 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ int		ft_attack_position_classic(char *map, char *piece, char play, int e_co)
 	ft_memset(&pos, 0, sizeof(t_pos));
 	play2 = ft_enemy_letter(play);
 	pos.i = check_enemy(map, play2);
-	e_co = 0;
+	if (e_co)
+		e_co = 0;
 	while (pos.i >= 0)
 	{
 		if (ft_control_check(map, piece, pos.i, play) == 1)
