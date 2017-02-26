@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/11 12:49:55 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/25 18:41:51 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/26 08:28:03 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,17 +62,15 @@ char	*ft_record_map(int lgt, int fd)
 	ft_memset(&ref, 0, sizeof(t_ply));
 	get_next_line(fd, &ref.line1);
 	ref.map = "";
-	ref.map2 = "";
 	while (ref.i < lgt)
 	{
 		get_next_line(fd, &ref.line1);
-		ref.map2 = ft_strjoin(ref.map2, ref.line1 + 4);
+		ref.map = ft_strjoin(ref.map, ref.line1 + 4);
 		free(ref.line1);
-		ref.map2 = ft_strjoin(ref.map2, "\n");
+		ref.map = ft_strjoin(ref.map, "\n");
 		ref.i++;
 	}
-	printf("map \n%s\n", ref.map2);
-	return (ref.map2);
+	return (ref.map);
 }
 
 char	*ft_record_piece(int lgt, int fd)
