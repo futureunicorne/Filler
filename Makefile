@@ -6,7 +6,7 @@
 #    By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/24 11:53:06 by hel-hadi          #+#    #+#              #
-#    Updated: 2017/02/23 17:33:03 by hel-hadi         ###   ########.fr        #
+#    Updated: 2017/02/27 18:25:53 by hel-hadi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,9 @@ SRCS = 	filler.c		\
 		place_piece.c	\
 		stg_tools.c		\
 		stg_tools2.c	\
+		stg_tools3.c	\
+		stg_tools4.c	\
+
 
 
 OBJ = $(SRCS:.c=.o)

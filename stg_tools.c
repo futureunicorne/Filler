@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 23:49:28 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/23 18:40:44 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/27 18:26:52 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int		ft_check_bound(char *map, int flag)
 	t_pos pos;
 
 	ft_memset(&pos, 0, sizeof(t_pos));
-	pos.cpt = ft_nbr_line(map) / 6;
+	pos.cpt = ft_nbr_line(map) / 4;
 	if (flag == 0)
 	{
 		pos.i = 0;
@@ -61,10 +61,10 @@ int		ft_check_bound(char *map, int flag)
 			pos.i++;
 		}
 	}
-	else if (pos.flag == 1)
+	if (flag == 1)
 	{
-		pos.i = ft_strlen(map);
-		while (pos.i >= 0 && pos.auth < pos.cpt + 1)
+		pos.i = ft_strlen(map) - 2;
+		while (pos.i >= 0 && pos.auth < pos.cpt)
 		{
 			if (map[pos.i] == '\n')
 				pos.auth++;
@@ -100,25 +100,5 @@ int		ft_check_tiers(char *map, int flag, char play)
 			i--;
 		}
 	}
-	return (0);
-}
-
-int		ft_check_position(char *map, int med_f)
-{
-	int i;
-	int pts;
-	int res;
-
-	i = 0;
-	pts = 0;
-	while (i <= med_f)
-	{
-		if (map[i] == '.')
-			pts++;
-		i++;
-	}
-	res = (med_f / 10) * 2;
-	if (pts > res)
-		return (1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 17:18:44 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/23 20:32:34 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/27 18:34:49 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ typedef struct		s_ply
 	int				*tab;
 	int				*tab2;
 	char			*map;
-	char			*map2;
 	char			*piece;
 	int				start;
 	int				e_co;
@@ -64,6 +63,7 @@ typedef	struct		s_pos
 {
 	int				x;
 	int				y;
+	int				z;
 	int				i;
 	int				j;
 	int				k;
@@ -121,7 +121,6 @@ int					ft_enemy_start_place(char *map, char play);
 char				ft_enemy_letter(char play);
 int					ft_correc_x(char *str);
 int					ft_convert_x(char *map, int conv);
-
 int					ft_convert_y(char *map, int conv);
 int					ft_count_stars(char *piece);
 int					check_count(char *str);
@@ -129,7 +128,6 @@ int					record_left_corner(char *piece);
 int					ft_place_anywhere(char *map, char *piece, char play);
 int					ft_check_bound(char *map, int flag);
 int					ft_check_tiers(char *map, int flag, char play);
-int					ft_check_position(char *map, int med_f);
 int					ft_check_dark_side(int start, int e_co);
 int					ft_nbr_line(char *map);
 int					ft_mediane_point(char *map);
@@ -144,7 +142,7 @@ int					ft_attack_position_classic(char *map, char *piece,
 void				ft_strategy_attack(char *map, char *piece,
 					t_stg *stg, char play);
 int					ft_place_piece(char *map, char *piece,
-					char play, t_art *art);
+					char play);
 int					ft_check_battle(t_ply *ref);
 void				ft_count_diff(char *str, t_pos *pos);
 int					ft_piece_diff(char *str);
@@ -160,5 +158,9 @@ char				*ft_reduct_piece(char *str, char *dst,
 int					ft_count_flag(char *str, int k);
 int					ckeck_place_piece(char *str, char *piece, int i, char play);
 int					ft_control_check(char *map, char *piece, int i, char play);
+int					ref_point(char *map, int pos);
+int					ref_point_inv(char *map, int pos);
+int					ft_advance_point_top(char *str, char play);
+int					ft_advance_point_bot(char *str, char play);
 
 #endif
