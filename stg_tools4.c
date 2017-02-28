@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/27 18:22:51 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/27 18:25:13 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/28 19:40:31 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,23 +59,18 @@ int		ft_cover_top_place(char *map, char *piece, int posi, char play)
 int		ft_attack(char *map, char *piece, char play)
 {
 	t_pos	pos;
-	char	play2;
 
 	ft_memset(&pos, 0, sizeof(t_pos));
-	play2 = ft_enemy_letter(play);
-	pos.i = ft_mediane_point(map);
+	pos.i = ft_strlen(map);
+	while (pos.i >= 0 && map[pos.i] != play)
+	{
+		pos.i--;
+	}
 	while (pos.i >= 0)
 	{
 		if (ft_control_check(map, piece, pos.i, play) == 1)
 			return (pos.i);
 		pos.i--;
-	}
-	pos.i = ft_mediane_point(map);
-	while (map[pos.i])
-	{
-		if (ft_control_check(map, piece, pos.i, play) == 1)
-			return (pos.i);
-		pos.i++;
 	}
 	return (-1);
 }

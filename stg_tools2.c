@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 23:52:09 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/27 18:13:34 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/28 14:25:07 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	ft_mediane_point(char *map)
 			line++;
 		i++;
 	}
-	line = line / 2;
+	line = line / 4;
 	i = 0;
 	cpt = 0;
 	while (map[i] && cpt < line)
