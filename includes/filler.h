@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 17:18:44 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/28 15:38:21 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/28 20:32:19 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,6 +164,12 @@ int					ref_point_inv(char *map, int pos);
 int					ft_advance_point_top(char *str, char play);
 int					ft_advance_point_bot(char *str, char play);
 int					ft_attack(char *map, char *piece, char play);
+int					ft_place_anywhere_inv(char *map, char *piece, char play);
+int					ft_attack_bot(char *map, char *piece, char play);
+int					last_line_inv(char *map, char play);
+int 				last_line(char *map, char play);
+
+
 
 
 #endif

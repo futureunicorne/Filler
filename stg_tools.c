@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 23:49:28 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/27 18:26:52 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/02/28 20:28:43 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,20 @@ int		ft_place_anywhere(char *map, char *piece, char play)
 		if (ft_control_check(map, piece, i, play) == 1)
 			return (i);
 		i++;
+	}
+	return (-1);
+}
+
+int		ft_place_anywhere_inv(char *map, char *piece, char play)
+{
+	int i;
+
+	i = ft_strlen(map) - 2;
+	while (i >= 0)
+	{
+		if (ft_control_check(map, piece, i, play) == 1)
+			return (i);
+		i--;
 	}
 	return (-1);
 }
