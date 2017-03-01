@@ -6,7 +6,7 @@
 #    By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/24 11:53:06 by hel-hadi          #+#    #+#              #
-#    Updated: 2017/02/28 19:40:33 by hel-hadi         ###   ########.fr        #
+#    Updated: 2017/03/01 19:15:43 by hel-hadi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRCS = 	filler.c		\
 		stg_tools2.c	\
 		stg_tools3.c	\
 		stg_tools4.c	\
+		stg_tools5.c	\
 
 
 

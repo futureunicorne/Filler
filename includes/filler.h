@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 17:18:44 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/28 20:32:19 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/03/01 19:22:37 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,7 +143,7 @@ int					ft_attack_position_classic(char *map, char *piece,
 void				ft_strategy_attack(char *map, char *piece,
 					t_stg *stg, char play);
 int					ft_place_piece(char *map, char *piece,
-					char play);
+					char play, t_art *art);
 int					ft_check_battle(t_ply *ref);
 void				ft_count_diff(char *str, t_pos *pos);
 int					ft_piece_diff(char *str);
@@ -168,6 +168,10 @@ int					ft_place_anywhere_inv(char *map, char *piece, char play);
 int					ft_attack_bot(char *map, char *piece, char play);
 int					last_line_inv(char *map, char play);
 int 				last_line(char *map, char play);
+int					ft_attack_inv_top(char *map, char *piece, char play);
+int					ft_attack_inv_bot(char *map, char *piece, char play);
+
+
 
 
 
