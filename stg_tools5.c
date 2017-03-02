@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 19:09:36 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/03/02 16:36:24 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/03/02 19:22:01 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,6 @@ void	ft_inv_bot(char *map, t_pos *pos)
 	if (pos->i == pos->diff)
 		pos->star++;
 	pos->i = pos->i + ft_check_line(map);
-	if ((pos->star >= 1 && pos->star <= 5) &&
-	((pos->i >= (int)ft_strlen(map) - 1)))
-		pos->i = pos->diff;
 	if (pos->i >= (int)ft_strlen(map) - 1)
 	{
 		pos->j++;
@@ -48,9 +45,9 @@ int		ft_attack_inv_bot(char *map, char *piece, char play)
 	pos.x = ref_point_inv(map, pos.cpt);
 	pos.place = ref_point_inv(map, pos.cpt);
 	pos.diff = ref_point_inv(map, pos.cpt) - 2;
-	while (pos.i >= 0)
+	while (pos.j < pos.x && pos.j < ft_check_line(map))
 	{
-		if (pos.j == pos.x + 1)
+		if (pos.j == pos.x)
 			break ;
 		ft_count_attack(&pos, 0);
 		if (pos.flag == 1)
@@ -65,15 +62,7 @@ int		ft_attack_inv_bot(char *map, char *piece, char play)
 
 void	ft_inv_top(char *map, t_pos *pos)
 {
-	if (pos->i == pos->diff)
-	{
-		pos->star++;
-	}
 	pos->i = pos->i - ft_check_line(map);
-	if ((pos->star >= 1 && pos->star <= 8) && (pos->i < 0))
-	{
-		pos->i = pos->diff;
-	}
 	if (pos->i < 0)
 	{
 		pos->j++;
@@ -90,7 +79,7 @@ int		ft_attack_inv_top(char *map, char *piece, char play)
 	pos.i = ref_point(map, pos.cpt) - 1;
 	pos.place = ref_point(map, pos.cpt) - 1;
 	pos.diff = ref_point(map, pos.cpt);
-	while (map[pos.i])
+	while (pos.j < pos.x && pos.j < ft_check_line(map))
 	{
 		if (pos.j == (int)ft_strlen(map) - 2)
 			break ;

@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/16 23:52:09 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/03/01 11:31:23 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/03/02 17:18:18 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ int	check_enemy(char *map, char play2)
 	int i;
 
 	i = 0;
-	dprintf(2, "==== %d\n", i);
 	while (i >= 0)
 	{
 		if (map[i] == play2)
