@@ -6,15 +6,33 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/14 18:18:58 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/03/01 19:23:49 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/03/02 16:34:55 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
+int		ft_attack(char *map, char *piece, char play)
+{
+	t_pos	pos;
+
+	ft_memset(&pos, 0, sizeof(t_pos));
+	pos.i = ft_strlen(map);
+	while (pos.i >= 0 && map[pos.i] != play)
+	{
+		pos.i--;
+	}
+	while (pos.i >= 0)
+	{
+		if (ft_control_check(map, piece, pos.i, play) == 1)
+			return (pos.i);
+		pos.i--;
+	}
+	return (-1);
+}
+
 void	ft_strategy_attack(char *map, char *piece, t_stg *stg, char play)
 {
-	/*
 	if (ft_check_dark_side(stg->pos, stg->e_co) == 0)
 	{
 		stg->res = ft_attack_inv_bot(map, piece, play);
@@ -34,8 +52,6 @@ void	ft_strategy_attack(char *map, char *piece, t_stg *stg, char play)
 		else
 			stg->res = ft_place_anywhere(map, piece, play);
 	}
-	*/
-	stg->res = ft_place_anywhere(map, piece, play);
 }
 
 int		ft_place_piece(char *map, char *piece, char play, t_art *art)
