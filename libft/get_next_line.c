@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/23 15:38:37 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/03/02 16:41:54 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/03/03 10:06:21 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ t_list	*ft_check_fd(t_last *list, int fd)
 			return (tmp);
 		tmp = tmp->prev;
 	}
-	ft_add_elm(list, (char*)"", 0, fd);
 	free(tmp);
+	ft_add_elm(list, (char*)"", 0, fd);
 	tmp = list->fin;
 	while (fd != tmp->repere)
 		tmp = tmp->prev;
@@ -78,6 +78,8 @@ int		get_next_line(int fd, char **line)
 		return (-1);
 	elem = ft_check_fd(&list, fd);
 	*line = ft_strdup(elem->content);
+	if (ft_strlen(elem->content) != 0)
+		free (elem->content);
 	ret = 1;
 	while (ret && check(*line) == -1)
 	{
@@ -85,8 +87,12 @@ int		get_next_line(int fd, char **line)
 		if (ret == -1)
 			return (-1);
 		buf[ret] = '\0';
-		*line = ft_strjoin(*line, buf);
+		*line = ft_strjoin_c(*line, buf);
 	}
 	create_line(line, elem);
-	return ((!ret && !**line && !elem->content[0]) ? 0 : 1);
+	if (!ret && !**line && !elem->content[0])
+		return (0);
+	else
+		return (1);
+	//return ((!ret && !**line && !elem->content[0]) ? 0 : 1);
 }

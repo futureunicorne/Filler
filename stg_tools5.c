@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 19:09:36 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/03/02 19:22:01 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/03/03 09:01:17 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,22 @@ void	ft_count_attack(t_pos *pos, int flag)
 		pos->flag = 0;
 }
 
+
+
 void	ft_inv_bot(char *map, t_pos *pos)
 {
-	if (pos->i == pos->diff)
-		pos->star++;
+	if (pos->i == pos->diff && pos->chk == 0)
+		pos->chk = 1;
 	pos->i = pos->i + ft_check_line(map);
+	if (pos->chk == 1)
+	{
+		pos->chk = 1;
+		if ((pos->star < 5) && (pos->i >= (int)ft_strlen(map) - 1))
+		{
+			pos->i = pos->diff;
+			pos->star++;
+		}
+	}
 	if (pos->i >= (int)ft_strlen(map) - 1)
 	{
 		pos->j++;
@@ -44,10 +55,11 @@ int		ft_attack_inv_bot(char *map, char *piece, char play)
 	pos.cpt = ft_advance_point_bot(map, play);
 	pos.x = ref_point_inv(map, pos.cpt);
 	pos.place = ref_point_inv(map, pos.cpt);
-	pos.diff = ref_point_inv(map, pos.cpt) - 2;
-	while (pos.j < pos.x && pos.j < ft_check_line(map))
+	pos.diff = ref_point_inv(map, pos.cpt) -2;
+	while (pos.i >= 0)
 	{
-		if (pos.j == pos.x)
+		//printf(	"===== %d\n", pos.i);
+		if (pos.i == pos.x + 1)
 			break ;
 		ft_count_attack(&pos, 0);
 		if (pos.flag == 1)
@@ -60,16 +72,26 @@ int		ft_attack_inv_bot(char *map, char *piece, char play)
 	return (-1);
 }
 
-void	ft_inv_top(char *map, t_pos *pos)
+void 	ft_inv_top(char *map, t_pos *pos)
 {
+	if (pos->i == pos->diff && pos->chk == 0)
+		pos->chk = 1;
 	pos->i = pos->i - ft_check_line(map);
+	if (pos->chk == 1)
+	{
+		pos->chk = 1;
+		if ((pos->star < 7) && (pos->i < 0))
+		{
+			pos->i = pos->diff;
+			pos->star++;
+		}
+	}
 	if (pos->i < 0)
 	{
 		pos->j++;
 		pos->i = pos->place + pos->j;
 	}
 }
-
 int		ft_attack_inv_top(char *map, char *piece, char play)
 {
 	t_pos	pos;
@@ -79,9 +101,9 @@ int		ft_attack_inv_top(char *map, char *piece, char play)
 	pos.i = ref_point(map, pos.cpt) - 1;
 	pos.place = ref_point(map, pos.cpt) - 1;
 	pos.diff = ref_point(map, pos.cpt);
-	while (pos.j < pos.x && pos.j < ft_check_line(map))
+	while (map[pos.i])
 	{
-		if (pos.j == (int)ft_strlen(map) - 2)
+		if (pos.i == (int)ft_strlen(map) - 2)
 			break ;
 		ft_count_attack(&pos, 1);
 		if (pos.flag == 1)

@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/12 23:32:20 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/02/23 18:53:08 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/03/03 09:26:24 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ int		ft_control_check(char *map, char *piece, int i, char play)
 	dst = ft_strnew(ft_count_piece(piece, x, y));
 	dst = ft_reduct_piece(piece, dst, x, y);
 	res = ckeck_place_piece(map, dst, i, play);
+	free (dst);
 	if (res)
 		return (1);
 	return (0);

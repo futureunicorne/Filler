@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 17:18:44 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/03/02 16:37:07 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/03/03 09:20:24 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ typedef struct		s_ply
 	int				*tab;
 	int				*tab2;
 	char			*map;
+	char			*map2;
+	char			*map3;
 	char			*piece;
 	int				start;
 	int				e_co;
@@ -67,6 +69,7 @@ typedef	struct		s_pos
 	int				i;
 	int				j;
 	int				k;
+	int				chk;
 	int				cpt;
 	int				star;
 	int				place;
@@ -165,9 +168,10 @@ int					ft_advance_point_top(char *str, char play);
 int					ft_advance_point_bot(char *str, char play);
 int					ft_attack(char *map, char *piece, char play);
 int					ft_place_anywhere_inv(char *map, char *piece, char play);
+int					ft_attack(char *map, char *piece, char play);
 int					ft_attack_bot(char *map, char *piece, char play);
 int					last_line_inv(char *map, char play);
-int					last_line(char *map, char play);
+int 				last_line(char *map, char play);
 int					ft_attack_inv_top(char *map, char *piece, char play);
 int					ft_attack_inv_bot(char *map, char *piece, char play);
 

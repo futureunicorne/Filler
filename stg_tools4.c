@@ -6,7 +6,7 @@
 /*   By: hel-hadi <hel-hadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/27 18:22:51 by hel-hadi          #+#    #+#             */
-/*   Updated: 2017/03/02 17:32:38 by hel-hadi         ###   ########.fr       */
+/*   Updated: 2017/03/03 09:18:23 by hel-hadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,26 @@ int		last_line_inv(char *map, char play)
 	}
 	return (0);
 }
+
+int		ft_attack(char *map, char *piece, char play)
+{
+	t_pos	pos;
+
+	ft_memset(&pos, 0, sizeof(t_pos));
+	pos.i = ft_strlen(map);
+	while (pos.i >= 0 && map[pos.i] != play)
+	{
+		pos.i--;
+	}
+	while (pos.i >= 0)
+	{
+		if (ft_control_check(map, piece, pos.i, play) == 1)
+			return (pos.i);
+		pos.i--;
+	}
+	return (-1);
+}
+
 
 int		ft_attack_bot(char *map, char *piece, char play)
 {
